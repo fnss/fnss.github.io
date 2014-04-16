@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.adapters.mn &mdash; FNSS 0.4.0 documentation</title>
+    <title>fnss.adapters.mn &mdash; FNSS 0.4.1 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.4.0',
+        VERSION:     '0.4.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.4.0 documentation" href="../../../index.html" />
+    <link rel="top" title="FNSS 0.4.1 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
@@ -75,6 +75,9 @@
 <span class="sd">topologies and viceversa.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
+
 <span class="kn">from</span> <span class="nn">fnss.units</span> <span class="kn">import</span> <span class="n">capacity_units</span><span class="p">,</span> <span class="n">time_units</span>
 <span class="kn">from</span> <span class="nn">fnss.topologies.topology</span> <span class="kn">import</span> <span class="n">Topology</span>
 <span class="kn">from</span> <span class="nn">fnss.netconfig</span> <span class="kn">import</span> <span class="n">set_delays_constant</span>
@@ -115,7 +118,7 @@
     <span class="k">return</span> <span class="n">fnss_topo</span>
 
 </div>
-<div class="viewcode-block" id="to_mininet"><a class="viewcode-back" href="../../../apidoc/generated/fnss.adapters.mn.to_mininet.html#fnss.adapters.mn.to_mininet">[docs]</a><span class="k">def</span> <span class="nf">to_mininet</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">switches</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">hosts</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="to_mininet"><a class="viewcode-back" href="../../../apidoc/generated/fnss.adapters.mn.to_mininet.html#fnss.adapters.mn.to_mininet">[docs]</a><span class="k">def</span> <span class="nf">to_mininet</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">switches</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">hosts</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">relabel_nodes</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convert an FNSS topology to Mininet Topo object that can be used to</span>
 <span class="sd">    deploy a Mininet network.</span>
 <span class="sd">    </span>
@@ -135,6 +138,10 @@
 <span class="sd">        List of topology nodes acting as switches</span>
 <span class="sd">    hosts : list, optional</span>
 <span class="sd">        List of topology nodes acting as hosts</span>
+<span class="sd">    relabel_nodes : bool, optional</span>
+<span class="sd">        If *True*, rename node labels according to Mininet conventions. In</span>
+<span class="sd">        Mininet all node labels are strings whose values are &quot;h1&quot;, &quot;h2&quot;, ... if</span>
+<span class="sd">        the node is a host or &quot;s1&quot;, &quot;s2&quot;, ... if the node is a switch.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -172,10 +179,17 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">switches</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">hosts</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Some nodes are labeled as both host and switch. &#39;</span>
                          <span class="s">&#39;Switches and hosts node lists must be disjoint&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">nodes</span> <span class="o">==</span> <span class="n">switches</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">hosts</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">nodes</span> <span class="o">!=</span> <span class="n">switches</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">hosts</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Some nodes are not labeled as either host or switch &#39;</span>
                          <span class="s">&#39;or some nodes listed as switches or hosts do not &#39;</span>
                          <span class="s">&#39;belong to the topology&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">relabel_nodes</span><span class="p">:</span>
+        <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">v</span><span class="p">,</span> <span class="s">&quot;h</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">]</span> <span class="o">+</span> 
+                       <span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="s">&quot;s</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">switches</span><span class="p">])</span>
+        <span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">]</span>
+        <span class="n">switches</span> <span class="o">=</span> <span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">switches</span><span class="p">]</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="n">hosts</span> <span class="o">+</span> <span class="n">switches</span>
+        <span class="n">topology</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">relabel_nodes</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">topo</span> <span class="o">=</span> <span class="n">Topo</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">switches</span><span class="p">:</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">addSwitch</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
@@ -187,19 +201,19 @@
                     <span class="k">if</span> <span class="s">&#39;capacity_unit&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span> <span class="k">else</span> <span class="bp">None</span>
     <span class="n">buffer_unit</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s">&#39;buffer_unit&#39;</span><span class="p">]</span> \
                   <span class="k">if</span> <span class="s">&#39;buffer_unit&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span> <span class="k">else</span> <span class="bp">None</span>
-    <span class="k">if</span> <span class="n">capacity_unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">capacity_unit</span><span class="p">:</span>
         <span class="n">capacity_conversion</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">capacity_units</span><span class="p">[</span><span class="n">capacity_unit</span><span class="p">])</span> \
                               <span class="o">/</span> <span class="n">capacity_units</span><span class="p">[</span><span class="s">&#39;Mbps&#39;</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">delay_unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">delay_unit</span><span class="p">:</span>
         <span class="n">delay_conversion</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">time_units</span><span class="p">[</span><span class="n">delay_unit</span><span class="p">])</span> \
                               <span class="o">/</span> <span class="n">time_units</span><span class="p">[</span><span class="s">&#39;us&#39;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">if</span> <span class="s">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">capacity_unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">capacity_unit</span><span class="p">:</span>
             <span class="n">params</span><span class="p">[</span><span class="s">&#39;bw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacity_conversion</span>
             <span class="c"># Use Token Bucket filter to implement rate limit</span>
             <span class="n">params</span><span class="p">[</span><span class="s">&#39;use_htb&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span> 
-        <span class="k">if</span> <span class="s">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">delay_unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">delay_unit</span><span class="p">:</span>
             <span class="n">params</span><span class="p">[</span><span class="s">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">us&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s">&#39;delay&#39;</span><span class="p">]</span> 
                                            <span class="o">*</span> <span class="n">delay_conversion</span><span class="p">)</span>
         <span class="k">if</span> <span class="s">&#39;buffer_size&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">buffer_unit</span> <span class="o">==</span> <span class="s">&#39;packets&#39;</span><span class="p">:</span>
@@ -225,7 +239,7 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

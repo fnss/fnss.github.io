@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.adapters.mn.to_mininet &mdash; FNSS 0.4.0 documentation</title>
+    <title>fnss.adapters.mn.to_mininet &mdash; FNSS 0.4.1 documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.4.0',
+        VERSION:     '0.4.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.4.0 documentation" href="../../index.html" />
+    <link rel="top" title="FNSS 0.4.1 documentation" href="../../index.html" />
     <link rel="up" title="Functions" href="../fnss.functions.html" />
     <link rel="next" title="fnss.adapters.ns2.to_ns2" href="fnss.adapters.ns2.to_ns2.html" />
     <link rel="prev" title="fnss.adapters.mn.from_mininet" href="fnss.adapters.mn.from_mininet.html" /> 
@@ -49,7 +49,7 @@
         <li class="right" >
           <a href="fnss.adapters.mn.from_mininet.html" title="fnss.adapters.mn.from_mininet"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" accesskey="U">Functions</a> &raquo;</li> 
       </ul>
@@ -87,7 +87,7 @@
 <h1>fnss.adapters.mn.to_mininet<a class="headerlink" href="#fnss-adapters-mn-to-mininet" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fnss.adapters.mn.to_mininet">
-<tt class="descname">to_mininet</tt><big>(</big><em>topology</em>, <em>switches=None</em>, <em>hosts=None</em><big>)</big><a class="reference internal" href="../../_modules/fnss/adapters/mn.html#to_mininet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fnss.adapters.mn.to_mininet" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">to_mininet</tt><big>(</big><em>topology</em>, <em>switches=None</em>, <em>hosts=None</em>, <em>relabel_nodes=True</em><big>)</big><a class="reference internal" href="../../_modules/fnss/adapters/mn.html#to_mininet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fnss.adapters.mn.to_mininet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert an FNSS topology to Mininet Topo object that can be used to
 deploy a Mininet network.</p>
 <p>If the links of the topology are labeled with delays, capacities or buffer
@@ -111,6 +111,12 @@ Mininet only supports buffer sizes expressed in packets.</p>
 <p><strong>hosts</strong> : list, optional</p>
 <blockquote>
 <div><p>List of topology nodes acting as hosts</p>
+</div></blockquote>
+<p><strong>relabel_nodes</strong> : bool, optional</p>
+<blockquote>
+<div><p>If <em>True</em>, rename node labels according to Mininet conventions. In
+Mininet all node labels are strings whose values are &#8220;h1&#8221;, &#8220;h2&#8221;, ... if
+the node is a host or &#8220;s1&#8221;, &#8220;s2&#8221;, ... if the node is a switch.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -161,7 +167,7 @@ a <em>switch</em>.</p>
         <li class="right" >
           <a href="fnss.adapters.mn.from_mininet.html" title="fnss.adapters.mn.from_mininet"
              >previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" >Functions</a> &raquo;</li> 
       </ul>
