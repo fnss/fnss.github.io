@@ -1,3 +1,9 @@
+---
+layout: index
+title: Fast Network Simulation Setup
+---
+
+
 ### News
 **AIMS 2014 tutorial**
 > We will give a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html). We will prepare a virtual machine image with all required configuration for the attendees of the tutorial and we will make it available here from mid May.
