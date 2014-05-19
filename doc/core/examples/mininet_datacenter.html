@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Mininet &mdash; FNSS 0.4.1 documentation</title>
+    <title>Mininet Datacenter &mdash; FNSS 0.5.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.4.1',
+        VERSION:     '0.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,10 +25,10 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.4.1 documentation" href="../index.html" />
+    <link rel="top" title="FNSS 0.5.0 documentation" href="../index.html" />
     <link rel="up" title="Examples" href="index.html" />
-    <link rel="next" title="Ns2" href="ns2.html" />
-    <link rel="prev" title="Rocketfuel Tm" href="rocketfuel_tm.html" /> 
+    <link rel="next" title="Dynamic Topology" href="dynamic_topology.html" />
+    <link rel="prev" title="Gen Event Schedule" href="gen_event_schedule.html" /> 
   </head>
   <body>
     <div class="related">
@@ -44,23 +44,23 @@
           <a href="../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="ns2.html" title="Ns2"
+          <a href="dynamic_topology.html" title="Dynamic Topology"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="rocketfuel_tm.html" title="Rocketfuel Tm"
+          <a href="gen_event_schedule.html" title="Gen Event Schedule"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Examples</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="rocketfuel_tm.html"
-                        title="previous chapter">Rocketfuel Tm</a></p>
+  <p class="topless"><a href="gen_event_schedule.html"
+                        title="previous chapter">Gen Event Schedule</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="ns2.html"
-                        title="next chapter">Ns2</a></p>
+  <p class="topless"><a href="dynamic_topology.html"
+                        title="next chapter">Dynamic Topology</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -82,11 +82,11 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="mininet">
-<h1>Mininet<a class="headerlink" href="#mininet" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="mininet-datacenter">
+<h1>Mininet Datacenter<a class="headerlink" href="#mininet-datacenter" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Create datacenter topology for Mininet</span>
-<span class="sd">=============================</span>
+<span class="sd">======================================</span>
 
 <span class="sd">This example shows how to create a datacenter topology with FNSS and export it</span>
 <span class="sd">to Mininet.</span>
@@ -100,10 +100,15 @@
 <span class="kn">from</span> <span class="nn">mininet.link</span> <span class="kn">import</span> <span class="n">TCLink</span>
 <span class="kn">from</span> <span class="nn">mininet.util</span> <span class="kn">import</span> <span class="n">dumpNodeConnections</span>
 <span class="kn">from</span> <span class="nn">mininet.log</span> <span class="kn">import</span> <span class="n">setLogLevel</span>
+<span class="kn">from</span> <span class="nn">mininet.node</span> <span class="kn">import</span> <span class="n">OVSController</span>
 
 
 <span class="c"># Create FNSS topology. Let&#39;s create a simple datacenter topology</span>
-<span class="n">fnss_topo</span> <span class="o">=</span> <span class="n">fnss</span><span class="o">.</span><span class="n">two_tier_topology</span><span class="p">(</span><span class="n">n_core</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_edge</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_hosts</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># This topology does not contain loops. If you want to use a topology with</span>
+<span class="c"># loops or multiple paths in Mininet you need to use a custom controller.</span>
+<span class="c"># More info here:</span>
+<span class="c"># https://github.com/mininet/mininet/wiki/Introduction-to-Mininet#multipath-routing</span>
+<span class="n">fnss_topo</span> <span class="o">=</span> <span class="n">fnss</span><span class="o">.</span><span class="n">two_tier_topology</span><span class="p">(</span><span class="n">n_core</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_edge</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_hosts</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c"># Set link attributes</span>
 <span class="n">fnss</span><span class="o">.</span><span class="n">set_capacities_constant</span><span class="p">(</span><span class="n">fnss_topo</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;Mbps&#39;</span><span class="p">)</span>
@@ -111,22 +116,28 @@
 <span class="n">fnss</span><span class="o">.</span><span class="n">set_buffer_sizes_constant</span><span class="p">(</span><span class="n">fnss_topo</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s">&#39;packets&#39;</span><span class="p">)</span>
 
 <span class="c"># Convert FNSS topology to Mininet</span>
-<span class="n">mn_topo</span> <span class="o">=</span> <span class="n">fnss</span><span class="o">.</span><span class="n">to_mininet</span><span class="p">(</span><span class="n">fnss_topo</span><span class="p">)</span>
+<span class="c"># If argument relabel_nodes is set to False, node labels are not changed when</span>
+<span class="c"># converting an FNSS topology to a Mininet one, except converting the type to</span>
+<span class="c"># string (e.g. 1 -&gt; &#39;1&#39;). If relabel_nodes is set to True (default option)</span>
+<span class="c"># then nodes are label according to Mininet conventions, e.g. hosts are</span>
+<span class="c"># prepended an h (e.g. 1 -&gt; &#39;h1&#39;) and switches are prepended an s</span>
+<span class="c"># (e.g. 2 -&gt; &#39;s2&#39;)</span>
+<span class="n">mn_topo</span> <span class="o">=</span> <span class="n">fnss</span><span class="o">.</span><span class="n">to_mininet</span><span class="p">(</span><span class="n">fnss_topo</span><span class="p">,</span> <span class="n">relabel_nodes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c"># Create a Mininet instance and start it</span>
-<span class="c"># Using TCLink to implement links enables Linux Traffic Container (TC) for rate</span>
+<span class="c"># Use TCLink to implement links enables Linux Traffic Container (TC) for rate</span>
 <span class="c"># limitation</span>
-<span class="n">net</span> <span class="o">=</span> <span class="n">Mininet</span><span class="p">(</span><span class="n">topo</span><span class="o">=</span><span class="n">mn_topo</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="n">TCLink</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">Mininet</span><span class="p">(</span><span class="n">topo</span><span class="o">=</span><span class="n">mn_topo</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="n">TCLink</span><span class="p">,</span> <span class="n">controller</span><span class="o">=</span><span class="n">OVSController</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="c"># Dumping host connections</span>
+<span class="c"># Dump host connections</span>
 <span class="n">dumpNodeConnections</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">hosts</span><span class="p">)</span>
 
 <span class="c"># Test network connectivity</span>
 <span class="n">net</span><span class="o">.</span><span class="n">pingAll</span><span class="p">()</span>
 
-<span class="c"># Test bandwidth between nodes&quot;</span>
-<span class="n">h1</span><span class="p">,</span> <span class="n">h4</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">)</span>
+<span class="c"># Test bandwidth between nodes</span>
+<span class="n">h1</span><span class="p">,</span> <span class="n">h4</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;h1&#39;</span><span class="p">,</span> <span class="s">&#39;h4&#39;</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">iperf</span><span class="p">((</span><span class="n">h1</span><span class="p">,</span> <span class="n">h4</span><span class="p">))</span>
 
 <span class="c"># Stop Mininet</span>
@@ -154,12 +165,12 @@
           <a href="../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="ns2.html" title="Ns2"
+          <a href="dynamic_topology.html" title="Dynamic Topology"
              >next</a> |</li>
         <li class="right" >
-          <a href="rocketfuel_tm.html" title="Rocketfuel Tm"
+          <a href="gen_event_schedule.html" title="Gen Event Schedule"
              >previous</a> |</li>
-        <li><a href="../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >Examples</a> &raquo;</li> 
       </ul>
     </div>

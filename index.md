@@ -3,7 +3,6 @@ layout: index
 title: Fast Network Simulation Setup
 ---
 
-
 ### News
 **AIMS 2014 tutorial**
 > We will give a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html). We will prepare a virtual machine image with all required configuration for the attendees of the tutorial and we will make it available here from mid May.
@@ -64,14 +63,14 @@ At this stage you are ready to use the Python core library. To use the Java or C
 
 You can either browse the code from the [FNSS GitHub repository](http://www.github.com/fnss/fnss) or choose among the following download options:
 
-#### Latest stable release (0.4.1)
+#### Latest stable release (0.5.0)
 
-Complete toolchain    | [tar.gz](https://github.com/fnss/fnss/archive/v0.4.1.tar.gz) | [zip](https://github.com/fnss/fnss/archive/v0.4.1.zip)
+Complete toolchain    | [tar.gz](https://github.com/fnss/fnss/archive/v0.5.0.tar.gz) | [zip](https://github.com/fnss/fnss/archive/v0.5.0.zip)
 ----------------------|:------------------------------------------------------------:|:-------------------------------------------------------:
-Core (Python) library | [tar.gz](download/core/fnss-core-0.4.1.tar.gz)               | [zip](download/core/fnss-core-0.4.1.zip)
-C++ library           | [tar.gz](download/cpp/fnss-cpp-api-0.4.1.tar.gz)             | [zip](download/cpp/fnss-cpp-api-0.4.1.zip)
-Java library          | [tar.gz](download/java/fnss-java-api-0.4.1-all.tar.gz)       | [zip](download/java/fnss-java-api-0.4.1-all.zip)
-ns-3 library          | [tar.gz](download/ns3/fnss-ns3-api-0.4.1.tar.gz)             | [zip](download/ns3/fnss-ns3-api-0.4.1.zip)
+Core (Python) library | [tar.gz](download/core/fnss-core-0.5.0.tar.gz)               | [zip](download/core/fnss-core-0.5.0.zip)
+C++ library           | [tar.gz](download/cpp/fnss-cpp-api-0.5.0.tar.gz)             | [zip](download/cpp/fnss-cpp-api-0.5.0.zip)
+Java library          | [tar.gz](download/java/fnss-java-api-0.5.0-all.tar.gz)       | [zip](download/java/fnss-java-api-0.5.0-all.zip)
+ns-3 library          | [tar.gz](download/ns3/fnss-ns3-api-0.5.0.tar.gz)             | [zip](download/ns3/fnss-ns3-api-0.5.0.zip)
 
 
 #### Development branch

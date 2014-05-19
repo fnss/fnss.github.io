@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Functions &mdash; FNSS 0.4.1 documentation</title>
+    <title>Functions &mdash; FNSS 0.5.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.4.1',
+        VERSION:     '0.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.4.1 documentation" href="../index.html" />
+    <link rel="top" title="FNSS 0.5.0 documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="index.html" />
     <link rel="next" title="fnss.netconfig.buffers.clear_buffer_sizes" href="generated/fnss.netconfig.buffers.clear_buffer_sizes.html" /> 
   </head>
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="generated/fnss.netconfig.buffers.clear_buffer_sizes.html" title="fnss.netconfig.buffers.clear_buffer_sizes"
              accesskey="N">next</a> |</li>
-        <li><a href="../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">API Reference</a> &raquo;</li> 
       </ul>
     </div>
@@ -493,22 +493,25 @@ models.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.dumbbell_topology.html#fnss.topologies.simplemodels.dumbbell_topology" title="fnss.topologies.simplemodels.dumbbell_topology"><tt class="xref py py-obj docutils literal"><span class="pre">dumbbell_topology</span></tt></a>(m1,&nbsp;m2)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.chord_topology.html#fnss.topologies.simplemodels.chord_topology" title="fnss.topologies.simplemodels.chord_topology"><tt class="xref py py-obj docutils literal"><span class="pre">chord_topology</span></tt></a>(m[,&nbsp;r])</td>
+<td>Return a Chord topology, as described in [R14]:</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.dumbbell_topology.html#fnss.topologies.simplemodels.dumbbell_topology" title="fnss.topologies.simplemodels.dumbbell_topology"><tt class="xref py py-obj docutils literal"><span class="pre">dumbbell_topology</span></tt></a>(m1,&nbsp;m2)</td>
 <td>Return a dumbbell topology consisting of two star topologies connected by a path.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.full_mesh_topology.html#fnss.topologies.simplemodels.full_mesh_topology" title="fnss.topologies.simplemodels.full_mesh_topology"><tt class="xref py py-obj docutils literal"><span class="pre">full_mesh_topology</span></tt></a>(n)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.full_mesh_topology.html#fnss.topologies.simplemodels.full_mesh_topology" title="fnss.topologies.simplemodels.full_mesh_topology"><tt class="xref py py-obj docutils literal"><span class="pre">full_mesh_topology</span></tt></a>(n)</td>
 <td>Return a fully connected mesh topology of n nodes</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.k_ary_tree_topology.html#fnss.topologies.simplemodels.k_ary_tree_topology" title="fnss.topologies.simplemodels.k_ary_tree_topology"><tt class="xref py py-obj docutils literal"><span class="pre">k_ary_tree_topology</span></tt></a>(k,&nbsp;h)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.k_ary_tree_topology.html#fnss.topologies.simplemodels.k_ary_tree_topology" title="fnss.topologies.simplemodels.k_ary_tree_topology"><tt class="xref py py-obj docutils literal"><span class="pre">k_ary_tree_topology</span></tt></a>(k,&nbsp;h)</td>
 <td>Return a balanced k-ary tree topology of with depth h</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.line_topology.html#fnss.topologies.simplemodels.line_topology" title="fnss.topologies.simplemodels.line_topology"><tt class="xref py py-obj docutils literal"><span class="pre">line_topology</span></tt></a>(n)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.line_topology.html#fnss.topologies.simplemodels.line_topology" title="fnss.topologies.simplemodels.line_topology"><tt class="xref py py-obj docutils literal"><span class="pre">line_topology</span></tt></a>(n)</td>
 <td>Return a line topology of n nodes</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.ring_topology.html#fnss.topologies.simplemodels.ring_topology" title="fnss.topologies.simplemodels.ring_topology"><tt class="xref py py-obj docutils literal"><span class="pre">ring_topology</span></tt></a>(n)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.ring_topology.html#fnss.topologies.simplemodels.ring_topology" title="fnss.topologies.simplemodels.ring_topology"><tt class="xref py py-obj docutils literal"><span class="pre">ring_topology</span></tt></a>(n)</td>
 <td>Return a ring topology of n nodes</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.star_topology.html#fnss.topologies.simplemodels.star_topology" title="fnss.topologies.simplemodels.star_topology"><tt class="xref py py-obj docutils literal"><span class="pre">star_topology</span></tt></a>(n)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.star_topology.html#fnss.topologies.simplemodels.star_topology" title="fnss.topologies.simplemodels.star_topology"><tt class="xref py py-obj docutils literal"><span class="pre">star_topology</span></tt></a>(n)</td>
 <td>Return a star (a.k.a hub-and-spoke) topology of <img class="math" src="../_images/math/0e3efd9b14723a92c2ae891fe27780d5f8e2b215.png" alt="n+1"/> nodes</td>
 </tr>
 </tbody>
@@ -631,7 +634,7 @@ script to deploy such topology into ns-2.</p>
         <li class="right" >
           <a href="generated/fnss.netconfig.buffers.clear_buffer_sizes.html" title="fnss.netconfig.buffers.clear_buffer_sizes"
              >next</a> |</li>
-        <li><a href="../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >API Reference</a> &raquo;</li> 
       </ul>
     </div>

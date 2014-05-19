@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.adapters.mn &mdash; FNSS 0.4.1 documentation</title>
+    <title>fnss.adapters.mn &mdash; FNSS 0.5.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.4.1',
+        VERSION:     '0.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.4.1 documentation" href="../../../index.html" />
+    <link rel="top" title="FNSS 0.5.0 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
@@ -139,9 +139,10 @@
 <span class="sd">    hosts : list, optional</span>
 <span class="sd">        List of topology nodes acting as hosts</span>
 <span class="sd">    relabel_nodes : bool, optional</span>
-<span class="sd">        If *True*, rename node labels according to Mininet conventions. In</span>
-<span class="sd">        Mininet all node labels are strings whose values are &quot;h1&quot;, &quot;h2&quot;, ... if</span>
-<span class="sd">        the node is a host or &quot;s1&quot;, &quot;s2&quot;, ... if the node is a switch.</span>
+<span class="sd">        If *True*, rename node labels according to `Mininet conventions</span>
+<span class="sd">        &lt;https://github.com/mininet/mininet/wiki/Introduction-to-Mininet#naming-in-mininet&gt;`_.</span>
+<span class="sd">        In Mininet all node labels are strings whose values are &quot;h1&quot;, &quot;h2&quot;, ...</span>
+<span class="sd">        if the node is a host or &quot;s1&quot;, &quot;s2&quot;, ... if the node is a switch.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -161,6 +162,11 @@
 <span class="sd">    topology nodes. In other words, there cannot be nodes labeled as both</span>
 <span class="sd">    *host* and *switch* and there cannot be nodes that are neither a *host* nor</span>
 <span class="sd">    a *switch*.</span>
+<span class="sd">    </span>
+<span class="sd">    It is important to point out that if the topology contains loops, it will </span>
+<span class="sd">    not work with the *ovs-controller* and *controller* provided by Mininet. It</span>
+<span class="sd">    will be necessary to use custom controllers. Further info `here</span>
+<span class="sd">    &lt;https://github.com/mininet/mininet/wiki/Introduction-to-Mininet#multipath-routing&gt;`_.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="kn">from</span> <span class="nn">mininet.topo</span> <span class="kn">import</span> <span class="n">Topo</span>
@@ -184,11 +190,13 @@
                          <span class="s">&#39;or some nodes listed as switches or hosts do not &#39;</span>
                          <span class="s">&#39;belong to the topology&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">relabel_nodes</span><span class="p">:</span>
-        <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">v</span><span class="p">,</span> <span class="s">&quot;h</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">]</span> <span class="o">+</span> 
-                       <span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="s">&quot;s</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">switches</span><span class="p">])</span>
-        <span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">]</span>
-        <span class="n">switches</span> <span class="o">=</span> <span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">switches</span><span class="p">]</span>
-        <span class="n">nodes</span> <span class="o">=</span> <span class="n">hosts</span> <span class="o">+</span> <span class="n">switches</span>
+        <span class="n">hosts</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
+        <span class="n">switches</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">switches</span><span class="p">)</span>
+        <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">hosts</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;h</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hosts</span><span class="p">))]</span> <span class="o">+</span>
+                       <span class="p">[(</span><span class="n">switches</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;s</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">switches</span><span class="p">))])</span>
+        <span class="n">hosts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">)</span>
+        <span class="n">switches</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">switches</span><span class="p">)</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="n">hosts</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">switches</span><span class="p">)</span>
         <span class="n">topology</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">relabel_nodes</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">topo</span> <span class="o">=</span> <span class="n">Topo</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">switches</span><span class="p">:</span>
@@ -239,7 +247,7 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

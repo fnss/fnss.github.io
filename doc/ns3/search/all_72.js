@@ -2,6 +2,8 @@ var searchData=
 [
   ['rapidxml_2ehpp',['rapidxml.hpp',['../rapidxml_8hpp.html',1,'']]],
   ['ref',['Ref',['../classns3_1_1FNSSEvent.html#afa166c26c25ef2c8c576d85aba73d553',1,'ns3::FNSSEvent']]],
+  ['relop',['RelOP',['../classfnss_1_1RelOP.html',1,'fnss']]],
+  ['relop_3c_20pair_3c_20t1_2c_20t2_20_3e_20_3e',['RelOP< Pair< T1, T2 > >',['../classfnss_1_1RelOP.html',1,'fnss']]],
   ['remove_5fall_5fattributes',['remove_all_attributes',['../classrapidxml_1_1xml__node.html#aa8d5d9484aa1eb5ff1841a073c84c1aa',1,'rapidxml::xml_node']]],
   ['remove_5fall_5fnodes',['remove_all_nodes',['../classrapidxml_1_1xml__node.html#a95735358b079ae0adcfbbac69aa1fbc3',1,'rapidxml::xml_node']]],
   ['remove_5fattribute',['remove_attribute',['../classrapidxml_1_1xml__node.html#a6f97b1b4f46a94a4587915df3c0c6b57',1,'rapidxml::xml_node']]],

@@ -105,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">fnss::Pair&lt; T1, T2 &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="fnss::Pair" -->
+<!-- doxytag: class="fnss::Pair" --><!-- doxytag: inherits="RelOP&lt; Pair&lt; T1, T2 &gt; &gt;" -->
 <p><code>#include &lt;<a class="el" href="pair_8h_source.html">pair.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for fnss::Pair&lt; T1, T2 &gt;:</div>
@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <div class="center">
   <img src="classfnss_1_1Pair.png" usemap="#fnss::Pair&lt; T1, T2 &gt;_map" alt=""/>
   <map id="fnss::Pair&lt; T1, T2 &gt;_map" name="fnss::Pair&lt; T1, T2 &gt;_map">
-<area href="classfnss_1_1CommutativePair.html" alt="fnss::CommutativePair&lt; T1, T2 &gt;" shape="rect" coords="0,56,196,80"/>
+<area href="classfnss_1_1RelOP.html" alt="fnss::RelOP&lt; Pair&lt; T1, T2 &gt; &gt;" shape="rect" coords="0,0,185,24"/>
 </map>
  </div></div>
 
@@ -123,8 +123,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77a316f47712d7b7a9d492e0384fec37"></a><!-- doxytag: member="fnss::Pair::Pair" ref="a77a316f47712d7b7a9d492e0384fec37" args="(bool commutative=false)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Pair</b> (bool commutative=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a611c3e76b42c2e75af28670449504602"></a><!-- doxytag: member="fnss::Pair::Pair" ref="a611c3e76b42c2e75af28670449504602" args="(bool commutative_=false)" -->
+&#160;</td><td class="memItemRight" valign="bottom"><b>Pair</b> (bool commutative_=false)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9e25db33410cefeaae769bb893aed7d"></a><!-- doxytag: member="fnss::Pair::Pair" ref="aa9e25db33410cefeaae769bb893aed7d" args="(const T1 &amp;first, const T2 &amp;second, bool commutative=false)" -->
 &#160;</td><td class="memItemRight" valign="bottom"><b>Pair</b> (const T1 &amp;first, const T2 &amp;second, bool commutative=false)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4e0e5df59ec1d9aaf329384cc305551"></a><!-- doxytag: member="fnss::Pair::Pair" ref="ae4e0e5df59ec1d9aaf329384cc305551" args="(const std::pair&lt; T1, T2 &gt; &amp;p, bool commutative=false)" -->
@@ -137,20 +137,12 @@ std::pair&lt; T1, T2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getCommutative</b> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af86b50a3012132a76923b117d0694cca"></a><!-- doxytag: member="fnss::Pair::setCommutative" ref="af86b50a3012132a76923b117d0694cca" args="(bool commutative)" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setCommutative</b> (bool commutative)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a709984d19e98e0a666e6275c283bb377"></a><!-- doxytag: member="fnss::Pair::operator=" ref="a709984d19e98e0a666e6275c283bb377" args="(const Pair &amp;other)" -->
-<a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;other)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40a6e14ba62ec5e1d60f855ff99de4a3"></a><!-- doxytag: member="fnss::Pair::operator==" ref="a40a6e14ba62ec5e1d60f855ff99de4a3" args="(const Pair &amp;other) const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a207335d183ac0f86e18cf40ba7282d78"></a><!-- doxytag: member="fnss::Pair::operator!=" ref="a207335d183ac0f86e18cf40ba7282d78" args="(const Pair &amp;other) const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3aba23f545f327b0620ddf1f218b6d7c"></a><!-- doxytag: member="fnss::Pair::operator&lt;" ref="a3aba23f545f327b0620ddf1f218b6d7c" args="(const Pair &amp;other) const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac08d51d2598b70640e1574b79ca2c9b0"></a><!-- doxytag: member="fnss::Pair::operator&lt;=" ref="ac08d51d2598b70640e1574b79ca2c9b0" args="(const Pair &amp;other) const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f3dbfc2faafefef615fda58e9d8cf33"></a><!-- doxytag: member="fnss::Pair::operator&gt;=" ref="a8f3dbfc2faafefef615fda58e9d8cf33" args="(const Pair &amp;other) const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfabdff9504025e1af984308c0ef0cf7"></a><!-- doxytag: member="fnss::Pair::operator&gt;" ref="acfabdff9504025e1af984308c0ef0cf7" args="(const Pair &amp;other) const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;other) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63777fbd563f3b4f4356eb23d70f2881"></a><!-- doxytag: member="fnss::Pair::operator=" ref="a63777fbd563f3b4f4356eb23d70f2881" args="(const Pair &amp;rhs)" -->
+<a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1100188fedfd7521bb761ec5511dc73"></a><!-- doxytag: member="fnss::Pair::operator==" ref="ad1100188fedfd7521bb761ec5511dc73" args="(const Pair &amp;rhs) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;rhs) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c8ba4a71e0c5d6cf8f64ba6f34c9e9c"></a><!-- doxytag: member="fnss::Pair::operator&lt;" ref="a5c8ba4a71e0c5d6cf8f64ba6f34c9e9c" args="(const Pair &amp;rhs) const " -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classfnss_1_1Pair.html">Pair</a> &amp;rhs) const </td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff902b017eeb1270e511ec4c6d9f3572"></a><!-- doxytag: member="fnss::Pair::first" ref="aff902b017eeb1270e511ec4c6d9f3572" args="" -->
@@ -162,7 +154,7 @@ T2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>second</b></td></
 <div class="textblock"><h3>template&lt;class T1, class T2&gt;<br/>
 class fnss::Pair&lt; T1, T2 &gt;</h3>
 
-<p>Wrapper class for std::pair that adds optional commutativity to the pair, eg. the pairs &lt;1, 2&gt; and &lt;2, 1&gt; will return true for operator==(..) if the commutative flag is set.</p>
+<p>Wrapper class for std::pair that adds optional commutativity to the pair, eg. the pairs &lt;1, 2&gt; and &lt;2, 1&gt; will return true for operator==(..) if the commutative flag is set. You _can_ use T1 != T2, but operators == and &lt;,</p>
 <dl class="author"><dt><b>Author:</b></dt><dd>Cosmin Cocora </dd></dl>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>fnss/model/<a class="el" href="pair_8h_source.html">pair.h</a></li>

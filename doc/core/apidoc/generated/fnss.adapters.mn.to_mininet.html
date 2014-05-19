@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.adapters.mn.to_mininet &mdash; FNSS 0.4.1 documentation</title>
+    <title>fnss.adapters.mn.to_mininet &mdash; FNSS 0.5.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.4.1',
+        VERSION:     '0.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.4.1 documentation" href="../../index.html" />
+    <link rel="top" title="FNSS 0.5.0 documentation" href="../../index.html" />
     <link rel="up" title="Functions" href="../fnss.functions.html" />
     <link rel="next" title="fnss.adapters.ns2.to_ns2" href="fnss.adapters.ns2.to_ns2.html" />
     <link rel="prev" title="fnss.adapters.mn.from_mininet" href="fnss.adapters.mn.from_mininet.html" /> 
@@ -49,7 +49,7 @@
         <li class="right" >
           <a href="fnss.adapters.mn.from_mininet.html" title="fnss.adapters.mn.from_mininet"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" accesskey="U">Functions</a> &raquo;</li> 
       </ul>
@@ -114,9 +114,9 @@ Mininet only supports buffer sizes expressed in packets.</p>
 </div></blockquote>
 <p><strong>relabel_nodes</strong> : bool, optional</p>
 <blockquote>
-<div><p>If <em>True</em>, rename node labels according to Mininet conventions. In
-Mininet all node labels are strings whose values are &#8220;h1&#8221;, &#8220;h2&#8221;, ... if
-the node is a host or &#8220;s1&#8221;, &#8220;s2&#8221;, ... if the node is a switch.</p>
+<div><p>If <em>True</em>, rename node labels according to <a class="reference external" href="https://github.com/mininet/mininet/wiki/Introduction-to-Mininet#naming-in-mininet">Mininet conventions</a>.
+In Mininet all node labels are strings whose values are &#8220;h1&#8221;, &#8220;h2&#8221;, ...
+if the node is a host or &#8220;s1&#8221;, &#8220;s2&#8221;, ... if the node is a switch.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -139,6 +139,9 @@ sets must be disjoint and their union must coincide to the set of all
 topology nodes. In other words, there cannot be nodes labeled as both
 <em>host</em> and <em>switch</em> and there cannot be nodes that are neither a <em>host</em> nor
 a <em>switch</em>.</p>
+<p>It is important to point out that if the topology contains loops, it will 
+not work with the <em>ovs-controller</em> and <em>controller</em> provided by Mininet. It
+will be necessary to use custom controllers. Further info <a class="reference external" href="https://github.com/mininet/mininet/wiki/Introduction-to-Mininet#multipath-routing">here</a>.</p>
 </dd></dl>
 
 </div>
@@ -167,7 +170,7 @@ a <em>switch</em>.</p>
         <li class="right" >
           <a href="fnss.adapters.mn.from_mininet.html" title="fnss.adapters.mn.from_mininet"
              >previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.4.1 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" >Functions</a> &raquo;</li> 
       </ul>
