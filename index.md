@@ -5,7 +5,12 @@ title: Fast Network Simulation Setup
 
 ### News
 **AIMS 2014 tutorial**
-> We will give a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html). We will prepare a virtual machine image with all required configuration for the attendees of the tutorial and we will make it available here from mid May.
+> We will give a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html). If you are attending the conference, please download and install the following virtual machine image, which contains all the required software for the tutorial:
+
+> * [fnss-vm.ova](https://dl.dropboxusercontent.com/u/6458698/fnss-vm.ova) (2.7 GB)
+> * [README.txt](https://dl.dropboxusercontent.com/u/6458698/README.txt)
+
+> Slides of the tutorial will be made available here ahead of the conference.
 
 ### Overview
 Fast Network Simulation Setup (FNSS) is a toolchain allowing network researchers and engineers to simplify the process of setting up a network experiment scenario. It allows users to:
