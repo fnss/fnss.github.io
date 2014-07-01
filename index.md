@@ -9,7 +9,7 @@ title: Fast Network Simulation Setup
 
 > * [fnss-vm.ova](https://dl.dropboxusercontent.com/u/6458698/fnss-vm.ova) (2.7 GB)
 > * [README.txt](https://dl.dropboxusercontent.com/u/6458698/README.txt)
-> * [slides.pdf](https://dl.dropboxusercontent.com/u/6458698/slides.pdf)
+> * [slides.pdf](aims2014/slides.pdf)
 
 > Slides of the tutorial will be made available here ahead of the conference.
 
