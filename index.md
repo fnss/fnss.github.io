@@ -5,13 +5,11 @@ title: Fast Network Simulation Setup
 
 ### News
 **AIMS 2014 tutorial**
-> We will give a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html). If you are attending the conference, please download and install the following virtual machine image, which contains all the required software for the tutorial:
+> Lorenzo Saino gave a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html). Here you can download the slides and virtual machine image used for the tutorial:
 
 > * [fnss-vm.ova](https://dl.dropboxusercontent.com/u/6458698/fnss-vm.ova) (2.7 GB)
 > * [README.txt](https://dl.dropboxusercontent.com/u/6458698/README.txt)
 > * [slides.pdf](aims2014/slides.pdf)
-
-> Slides of the tutorial will be made available here ahead of the conference.
 
 ### Overview
 Fast Network Simulation Setup (FNSS) is a toolchain allowing network researchers and engineers to simplify the process of setting up a network experiment scenario. It allows users to:
@@ -31,7 +29,7 @@ To use FNSS you would normally use the following workflow.
 
  1. Create an experiment scenario (topology, traffic matrices, event schedules) using the Python core library.
  2. Export the created scenario in your target simulator/emulator.
-      * If your target simulator/emulator is ns-2, Mininet or Autonetkit or a Python program, the core library include functions to export the scenario created in your target environment.
+      * If your target simulator/emulator is ns-2, Mininet, Autonetkit or a Python program, the core library include functions to export the scenario created in your target environment.
       * Otherwise, if you wish to run your experiments on ns-3 or a Java or C++ program, then export the scenario to XML files using the provided functions and use the Java, C++ or ns-3 library to import the scenario XML files into your target simulator/emulator.
 
 ### Install
@@ -80,7 +78,7 @@ ns-3 library          | [tar.gz](download/ns3/fnss-ns3-api-0.5.0.tar.gz)        
 
 
 #### Development branch
-You can download the latest version of the code from the development branch using [Git](http://git-scm.com/). The code on the development branch is usually quite stable and can be used safely.
+You can download the latest version of the code from the development branch using [Git](http://git-scm.com/). The code on the development branch is generally stable and can be used safely.
 Open a command shell, move to the directory where you want to download FNSS and type:
 
     $ git clone https://github.com/fnss/fnss.git
@@ -103,13 +101,13 @@ ns-3 library          | [Browse](doc/ns3/) | [Browse](https://github.com/fnss/fn
 Further information about FNSS architecture and the models it implements can be found in this paper:
 
  L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf),
-  in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013 \[[PDF](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf)\] \[[Slides](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13-slides.pdf)\]
+ in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013 \[[PDF](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf)\] \[[Slides](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13-slides.pdf)\]
+
 
 ### Citing
 If you cite FNSS in your paper, please refer to the following publication:
 
-L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf),
-  in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013
+L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf), in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013
 
     @inproceedings{fnss,
          author = {Saino, Lorenzo and Cocora, Cosmin and Pavlou, George},
