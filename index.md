@@ -97,8 +97,7 @@ Further information about FNSS architecture and the models it implements can be 
  L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf),
  in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013 \[[PDF](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf)\] \[[Slides](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13-slides.pdf)\]
 
-or in [these slides](aims2014/slides.pdf) that were used for a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html).
-
+You can also have a look at [these slides](aims2014/slides.pdf) that were used for a tutorial on FNSS given at the [AIMS 2014 conference](http://www.aims-conference.org/2014/labs.html).
 
 ### Citing
 If you cite FNSS in your paper, please refer to the following publication:
