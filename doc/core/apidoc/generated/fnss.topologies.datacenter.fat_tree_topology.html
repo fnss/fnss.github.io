@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.topologies.datacenter.fat_tree_topology &mdash; FNSS 0.5.0 documentation</title>
+    <title>fnss.topologies.datacenter.fat_tree_topology &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.5.0',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="../../index.html" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="../../index.html" />
     <link rel="up" title="Functions" href="../fnss.functions.html" />
     <link rel="next" title="fnss.topologies.datacenter.three_tier_topology" href="fnss.topologies.datacenter.three_tier_topology.html" />
     <link rel="prev" title="fnss.topologies.datacenter.bcube_topology" href="fnss.topologies.datacenter.bcube_topology.html" /> 
@@ -49,7 +47,7 @@
         <li class="right" >
           <a href="fnss.topologies.datacenter.bcube_topology.html" title="fnss.topologies.datacenter.bcube_topology"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" accesskey="U">Functions</a> &raquo;</li> 
       </ul>
@@ -88,12 +86,12 @@
 <dl class="function">
 <dt id="fnss.topologies.datacenter.fat_tree_topology">
 <tt class="descname">fat_tree_topology</tt><big>(</big><em>k</em><big>)</big><a class="reference internal" href="../../_modules/fnss/topologies/datacenter.html#fat_tree_topology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fnss.topologies.datacenter.fat_tree_topology" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a fat tree datacenter topology, as described in <a class="reference internal" href="#r16">[R16]</a></p>
+<dd><p>Return a fat tree datacenter topology, as described in <a class="reference internal" href="#r16" id="id1">[R16]</a></p>
 <p>A fat tree topology built using k-port switches can support up to 
-<img class="math" src="../../_images/math/89b99bab2918c79789ff150f31676bf1516f6396.png" alt="(k^3)/4"/> hosts. This topology comprises k pods with two layers of 
-<img class="math" src="../../_images/math/f8f7fd1dab6bb59aaf71a8f919812ba42cb7a243.png" alt="k/2"/> switches each. In each pod, each aggregation switch is
-connected to all the <img class="math" src="../../_images/math/f8f7fd1dab6bb59aaf71a8f919812ba42cb7a243.png" alt="k/2"/> edge switches and each edge switch is
-connected to <img class="math" src="../../_images/math/f8f7fd1dab6bb59aaf71a8f919812ba42cb7a243.png" alt="k/2"/> hosts. There are <img class="math" src="../../_images/math/d97c2e6ec607ee2ac19021e975c34f759e6f26ae.png" alt="(k/2)^2"/> core switches,
+<img class="math" src="../../_images/math/46bc446c486039ccca8bec36420c84265666dbb1.png" alt="(k^3)/4"/> hosts. This topology comprises k pods with two layers of 
+<img class="math" src="../../_images/math/0f9bc81502e317a1eb848acc0e0336490967cdf2.png" alt="k/2"/> switches each. In each pod, each aggregation switch is
+connected to all the <img class="math" src="../../_images/math/0f9bc81502e317a1eb848acc0e0336490967cdf2.png" alt="k/2"/> edge switches and each edge switch is
+connected to <img class="math" src="../../_images/math/0f9bc81502e317a1eb848acc0e0336490967cdf2.png" alt="k/2"/> hosts. There are <img class="math" src="../../_images/math/cc1429330881a91661212f074aaa8c9d462f51ef.png" alt="(k/2)^2"/> core switches,
 each of them connected to one aggregation switch per pod.</p>
 <dl class="docutils">
 <dt>Each node has three attributes:</dt>
@@ -114,13 +112,13 @@ edge switch to a host.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>k</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>k</strong> : int</p>
 <blockquote>
 <div><p>The number of ports of the switches</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>topology</strong> : DatacenterTopology</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>topology</strong> : DatacenterTopology</p>
 </td>
 </tr>
 </tbody>
@@ -163,14 +161,14 @@ conference on Data communication (SIGCOMM &#8216;08). ACM, New York, NY, USA
         <li class="right" >
           <a href="fnss.topologies.datacenter.bcube_topology.html" title="fnss.topologies.datacenter.bcube_topology"
              >previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" >Functions</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

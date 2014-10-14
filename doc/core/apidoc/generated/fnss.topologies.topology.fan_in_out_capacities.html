@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.topologies.topology.fan_in_out_capacities &mdash; FNSS 0.5.0 documentation</title>
+    <title>fnss.topologies.topology.fan_in_out_capacities &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.5.0',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="../../index.html" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="../../index.html" />
     <link rel="up" title="Functions" href="../fnss.functions.html" />
     <link rel="next" title="fnss.topologies.topology.od_pairs_from_topology" href="fnss.topologies.topology.od_pairs_from_topology.html" />
     <link rel="prev" title="fnss.topologies.simplemodels.star_topology" href="fnss.topologies.simplemodels.star_topology.html" /> 
@@ -49,7 +47,7 @@
         <li class="right" >
           <a href="fnss.topologies.simplemodels.star_topology.html" title="fnss.topologies.simplemodels.star_topology"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" accesskey="U">Functions</a> &raquo;</li> 
       </ul>
@@ -88,21 +86,22 @@
 <dl class="function">
 <dt id="fnss.topologies.topology.fan_in_out_capacities">
 <tt class="descname">fan_in_out_capacities</tt><big>(</big><em>topology</em><big>)</big><a class="reference internal" href="../../_modules/fnss/topologies/topology.html#fan_in_out_capacities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fnss.topologies.topology.fan_in_out_capacities" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate fan-in and fan-out capacities for all nodes of the topology. The
-fan-in capacity of a node is the sum of capacities of all incoming links,
-while the fan-out capacity is the sum of capacities of all outgoing links.</p>
+<dd><p>Calculate fan-in and fan-out capacities for all nodes of the topology.</p>
+<p>The fan-in capacity of a node is the sum of capacities of all incoming
+links, while the fan-out capacity is the sum of capacities of all outgoing
+links.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>topology</strong> : Topology</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>topology</strong> : Topology</p>
 <blockquote>
 <div><p>The topology object whose fan-in and fan-out capacities are calculated.
 This topology must be annotated with link capacities.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>fan_in_out_capacities</strong> : tuple (fan_in, fan_out)</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>fan_in_out_capacities</strong> : tuple (fan_in, fan_out)</p>
 <blockquote class="last">
 <div><p>A tuple of two dictionaries, representing, respectively the fan-in and 
 fan-out capacities keyed by node.</p>
@@ -154,14 +153,14 @@ fan-out capacities are identical.</p>
         <li class="right" >
           <a href="fnss.topologies.simplemodels.star_topology.html" title="fnss.topologies.simplemodels.star_topology"
              >previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" >Functions</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

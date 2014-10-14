@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.netconfig.capacities.set_capacities_random_power_law &mdash; FNSS 0.5.0 documentation</title>
+    <title>fnss.netconfig.capacities.set_capacities_random_power_law &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.5.0',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="../../index.html" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="../../index.html" />
     <link rel="up" title="Functions" href="../fnss.functions.html" />
     <link rel="next" title="fnss.netconfig.capacities.set_capacities_random_uniform" href="fnss.netconfig.capacities.set_capacities_random_uniform.html" />
     <link rel="prev" title="fnss.netconfig.capacities.set_capacities_random" href="fnss.netconfig.capacities.set_capacities_random.html" /> 
@@ -49,7 +47,7 @@
         <li class="right" >
           <a href="fnss.netconfig.capacities.set_capacities_random.html" title="fnss.netconfig.capacities.set_capacities_random"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" accesskey="U">Functions</a> &raquo;</li> 
       </ul>
@@ -90,10 +88,10 @@
 <tt class="descname">set_capacities_random_power_law</tt><big>(</big><em>topology</em>, <em>capacities</em>, <em>capacity_unit='Mbps'</em>, <em>alpha=1.1</em><big>)</big><a class="reference internal" href="../../_modules/fnss/netconfig/capacities.html#set_capacities_random_power_law"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fnss.netconfig.capacities.set_capacities_random_power_law" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set random link capacities according to a power-law probability density 
 function.</p>
-<p>The probability that a capacity <img class="math" src="../../_images/math/1e95be43c04d6869c67861aae1e3e69123fedd8c.png" alt="c_i"/> is assigned to a link is:</p>
+<p>The probability that a capacity <img class="math" src="../../_images/math/496867ca68c428fa123f26f0f73997632e61e116.png" alt="c_i"/> is assigned to a link is:</p>
 <div class="math">
-<p><img src="../../_images/math/793fbb62982d4b3295c44c21d65ce0cbf2167d47.png" alt="p(c_i) = \frac{{c_i}^{-\alpha}}{\sum_{c_k \in C}{{c_k}^{-\alpha}}}."/></p>
-</div><p>Where <img class="math" src="../../_images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> is the set of allowed capacity, i.e. the <tt class="docutils literal"><span class="pre">capacities</span></tt>
+<p><img src="../../_images/math/c0ce47af5db59406216482a196f027e951422034.png" alt="p(c_i) = \frac{{c_i}^{-\alpha}}{\sum_{c_k \in C}{{c_k}^{-\alpha}}}."/></p>
+</div><p>Where <img class="math" src="../../_images/math/2bcc65482aa8e15cd4c9e9f2542451fb4e971a91.png" alt="C"/> is the set of allowed capacity, i.e. the <tt class="docutils literal"><span class="pre">capacities</span></tt>
 argument</p>
 <p>Note that this capacity assignment differs from
 <tt class="docutils literal"><span class="pre">set_capacities_random_zipf</span></tt> because, while in Zipf assignment the power
@@ -104,7 +102,7 @@ value of the capacity and the probability of being assigned to a link.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>topology</strong> : Topology</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>topology</strong> : Topology</p>
 <blockquote>
 <div><p>The topology to which link capacities will be set</p>
 </div></blockquote>
@@ -148,14 +146,14 @@ value of the capacity and the probability of being assigned to a link.</p>
         <li class="right" >
           <a href="fnss.netconfig.capacities.set_capacities_random.html" title="fnss.netconfig.capacities.set_capacities_random"
              >previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" >Functions</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

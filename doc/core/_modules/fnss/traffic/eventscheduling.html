@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.traffic.eventscheduling &mdash; FNSS 0.5.0 documentation</title>
+    <title>fnss.traffic.eventscheduling &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.5.0',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="../../../index.html" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -41,7 +39,7 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
@@ -95,9 +93,8 @@
            <span class="p">]</span>
 
 <div class="viewcode-block" id="EventSchedule"><a class="viewcode-back" href="../../../apidoc/fnss.classes.html#fnss.traffic.eventscheduling.EventSchedule">[docs]</a><span class="k">class</span> <span class="nc">EventSchedule</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Class representing an event schedule. This class is simply a wrapper for a </span>
-<span class="sd">    list of events.</span>
+    <span class="sd">&quot;&quot;&quot;Class representing an event schedule. This class is simply a wrapper for</span>
+<span class="sd">    a list of events.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="c"># NOTE: This class doesn&#39;t have a __setitem__ method because the insertion</span>
@@ -106,8 +103,7 @@
     <span class="c"># position of the schedule.</span>
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_unit</span><span class="o">=</span><span class="s">&#39;ms&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize the event schedule</span>
+        <span class="sd">&quot;&quot;&quot;Initialize the event schedule</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -127,36 +123,31 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">event</span> <span class="o">=</span> <span class="p">[]</span>
         
     <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the number of events in the schedule. Use the expression </span>
+        <span class="sd">&quot;&quot;&quot;Return the number of events in the schedule. Use the expression </span>
 <span class="sd">        &#39;len(schedule)&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Iterates over the events of the schedule. Use the expression</span>
+        <span class="sd">&quot;&quot;&quot;Iterates over the events of the schedule. Use the expression</span>
 <span class="sd">        &#39;for event in event_schedule&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the event in a specific position of the schedule. Use the</span>
+        <span class="sd">&quot;&quot;&quot;Return the event in a specific position of the schedule. Use the</span>
 <span class="sd">        expression &#39;event_schedule[i]&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
     
     <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Remove the event in a specific position of the schedule. Use the</span>
+        <span class="sd">&quot;&quot;&quot;Remove the event in a specific position of the schedule. Use the</span>
 <span class="sd">        expression &#39;del event_schedule[i]&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>   
        
     <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Merge two events schedules.</span>
+        <span class="sd">&quot;&quot;&quot;Merge two events schedules.</span>
 <span class="sd">        </span>
 <span class="sd">        This method takes all the events of the schedule passed as argument,</span>
 <span class="sd">        add them to the event schedule it belongs to and returned the merged</span>
@@ -173,8 +164,7 @@
         <span class="k">return</span> <span class="n">es</span>
     
     <span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Merge two events schedules.</span>
+        <span class="sd">&quot;&quot;&quot;Merge two events schedules.</span>
 <span class="sd">        </span>
 <span class="sd">        This method takes all the events of the schedule passed as argument,</span>
 <span class="sd">        add them to the event schedule it belongs to and returned the merged</span>
@@ -189,8 +179,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
     
 <div class="viewcode-block" id="EventSchedule.add"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.EventSchedule.add.html#fnss.traffic.eventscheduling.EventSchedule.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">absolute_time</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adds an event to the schedule. </span>
+        <span class="sd">&quot;&quot;&quot;Adds an event to the schedule. </span>
 <span class="sd">        </span>
 <span class="sd">        Events are inserted so that the schedule is always chronologically </span>
 <span class="sd">        sorted.</span>
@@ -236,14 +225,17 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     </div>
 <div class="viewcode-block" id="EventSchedule.number_of_events"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.EventSchedule.number_of_events.html#fnss.traffic.eventscheduling.EventSchedule.number_of_events">[docs]</a>    <span class="k">def</span> <span class="nf">number_of_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the number of events in the schedule</span>
+        <span class="sd">&quot;&quot;&quot;Return the number of events in the schedule</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        number_of_events : int</span>
+<span class="sd">            The number of events of the schedule</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="EventSchedule.add_schedule"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.EventSchedule.add_schedule.html#fnss.traffic.eventscheduling.EventSchedule.add_schedule">[docs]</a>    <span class="k">def</span> <span class="nf">add_schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_schedule</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Merge with another event schedule.</span>
+        <span class="sd">&quot;&quot;&quot;Merge with another event schedule.</span>
 <span class="sd">        </span>
 <span class="sd">        This method takes all the events of the schedule passed as argument</span>
 <span class="sd">        and add them to the event schedule it belongs to. The events of the</span>
@@ -265,8 +257,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="n">conv_factor</span><span class="p">,</span> <span class="n">event_props</span><span class="p">,</span> <span class="n">absolute_time</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     </div>
 <div class="viewcode-block" id="EventSchedule.events_between"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.EventSchedule.events_between.html#fnss.traffic.eventscheduling.EventSchedule.events_between">[docs]</a>    <span class="k">def</span> <span class="nf">events_between</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">t_end</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return an event schedule comprising all events scheduled between a </span>
+        <span class="sd">&quot;&quot;&quot;Return an event schedule comprising all events scheduled between a </span>
 <span class="sd">        start time (included) and an end time (excluded).</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -294,8 +285,7 @@
 </div></div>
 <div class="viewcode-block" id="deterministic_process_event_schedule"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.deterministic_process_event_schedule.html#fnss.traffic.eventscheduling.deterministic_process_event_schedule">[docs]</a><span class="k">def</span> <span class="nf">deterministic_process_event_schedule</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">t_unit</span><span class="p">,</span> 
                                          <span class="n">event_generator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return a schedule of events separated by a fixed time interval</span>
+    <span class="sd">&quot;&quot;&quot;Return a schedule of events separated by a fixed time interval</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -315,11 +305,11 @@
 <span class="sd">        List of non-keyworded arguments for event_generator function</span>
 <span class="sd">    **kwargs : keyworded argument list</span>
 <span class="sd">        List of keyworded arguments for event_generator function</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    event_schedule : EventSchedule</span>
 <span class="sd">        An EventSchedule object</span>
-<span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">t_end</span> <span class="o">=</span> <span class="n">t_start</span> <span class="o">+</span> <span class="n">duration</span>
     <span class="n">t_last_event</span> <span class="o">=</span> <span class="n">t_start</span>
@@ -336,8 +326,7 @@
 </div>
 <div class="viewcode-block" id="poisson_process_event_schedule"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.poisson_process_event_schedule.html#fnss.traffic.eventscheduling.poisson_process_event_schedule">[docs]</a><span class="k">def</span> <span class="nf">poisson_process_event_schedule</span><span class="p">(</span><span class="n">avg_interval</span><span class="p">,</span> <span class="n">t_start</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">t_unit</span><span class="p">,</span> 
                                    <span class="n">event_generator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return a schedule of Poisson-distributed events</span>
+    <span class="sd">&quot;&quot;&quot;Return a schedule of Poisson-distributed events</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -352,13 +341,14 @@
 <span class="sd">        The unit in which time values are expressed (e.g. &#39;ms&#39;, &#39;s&#39;)</span>
 <span class="sd">    seed : int, long or hashable type, optional</span>
 <span class="sd">        The seed to be used by the random generator.</span>
-<span class="sd">    event_generator : function</span>
+<span class="sd">    event_generator : callable</span>
 <span class="sd">        A function that when called returns an event, i.e. a dictionary of </span>
 <span class="sd">        event properties</span>
 <span class="sd">    *args : argument list</span>
 <span class="sd">        List of non-keyworded arguments for event_generator function</span>
 <span class="sd">    **kwargs : keyworded argument list</span>
 <span class="sd">        List of keyworded arguments for event_generator function</span>
+<span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    event_schedule : EventSchedule</span>
@@ -367,17 +357,17 @@
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
 <span class="sd">    &gt;&gt;&gt; import random, fnss</span>
-<span class="sd">    &gt;&gt;&gt; def my_event_gen():</span>
+<span class="sd">    &gt;&gt;&gt; def my_event_gen(p):</span>
 <span class="sd">    ...     event_props = {}</span>
 <span class="sd">    ...     r = random.random()</span>
-<span class="sd">    ...     if r &gt; 0.5:</span>
+<span class="sd">    ...     if r &gt; p:</span>
 <span class="sd">    ...         event_props[&#39;action&#39;]=&#39;send_email&#39;</span>
 <span class="sd">    ...     else:</span>
 <span class="sd">    ...         event_props[&#39;action&#39;]=&#39;watch_video&#39;</span>
 <span class="sd">    ...     return event_props</span>
 <span class="sd">    ... </span>
 <span class="sd">    &gt;&gt;&gt; schedule = fnss.schedule_dynamic_poisson_events(15, 0, 8000, &#39;ms&#39;, </span>
-<span class="sd">    ... my_event_gen)</span>
+<span class="sd">    ... my_event_gen, p=0.5)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">t_end</span> <span class="o">=</span> <span class="n">t_start</span> <span class="o">+</span> <span class="n">duration</span>
     <span class="n">t_last_event</span> <span class="o">=</span> <span class="n">t_start</span>
@@ -393,8 +383,17 @@
 
 </div>
 <div class="viewcode-block" id="read_event_schedule"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.read_event_schedule.html#fnss.traffic.eventscheduling.read_event_schedule">[docs]</a><span class="k">def</span> <span class="nf">read_event_schedule</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Read event schedule from an XML file</span>
+    <span class="sd">&quot;&quot;&quot;Read event schedule from an XML file</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        The path to the event schedule XML file</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    event_schedule : EventSchedule</span>
+<span class="sd">        The parsed event schedule</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">event_schedule</span> <span class="o">=</span> <span class="n">EventSchedule</span><span class="p">()</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -418,8 +417,19 @@
 </div>
 <div class="viewcode-block" id="write_event_schedule"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.eventscheduling.write_event_schedule.html#fnss.traffic.eventscheduling.write_event_schedule">[docs]</a><span class="k">def</span> <span class="nf">write_event_schedule</span><span class="p">(</span><span class="n">event_schedule</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> 
                          <span class="n">encoding</span><span class="o">=</span><span class="s">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">prettyprint</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Write an event schedule object to an XML file.</span>
+    <span class="sd">&quot;&quot;&quot;Write an event schedule object to an XML file.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    event_schedule : EventSchedule</span>
+<span class="sd">        The event schedule to write</span>
+<span class="sd">    path : str</span>
+<span class="sd">        The path of the output XML file</span>
+<span class="sd">    encoding : str, optional</span>
+<span class="sd">        The desired encoding of the output file</span>
+<span class="sd">    prettyprint : bool, optional</span>
+<span class="sd">        Specify whether the XML file should be written with indentation for</span>
+<span class="sd">        improved human readability</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">head</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s">&quot;event-schedule&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">event_schedule</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -457,13 +467,13 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

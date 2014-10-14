@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.topologies.datacenter.bcube_topology &mdash; FNSS 0.5.0 documentation</title>
+    <title>fnss.topologies.datacenter.bcube_topology &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.5.0',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="../../index.html" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="../../index.html" />
     <link rel="up" title="Functions" href="../fnss.functions.html" />
     <link rel="next" title="fnss.topologies.datacenter.fat_tree_topology" href="fnss.topologies.datacenter.fat_tree_topology.html" />
     <link rel="prev" title="fnss.traffic.trafficmatrices.write_traffic_matrix" href="fnss.traffic.trafficmatrices.write_traffic_matrix.html" /> 
@@ -49,7 +47,7 @@
         <li class="right" >
           <a href="fnss.traffic.trafficmatrices.write_traffic_matrix.html" title="fnss.traffic.trafficmatrices.write_traffic_matrix"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" accesskey="U">Functions</a> &raquo;</li> 
       </ul>
@@ -88,21 +86,21 @@
 <dl class="function">
 <dt id="fnss.topologies.datacenter.bcube_topology">
 <tt class="descname">bcube_topology</tt><big>(</big><em>n</em>, <em>k</em><big>)</big><a class="reference internal" href="../../_modules/fnss/topologies/datacenter.html#bcube_topology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fnss.topologies.datacenter.bcube_topology" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a Bcube datacenter topology, as described in <a class="reference internal" href="#r15">[R15]</a>:</p>
+<dd><p>Return a Bcube datacenter topology, as described in <a class="reference internal" href="#r15" id="id1">[R15]</a>:</p>
 <p>The BCube topology is a topology specifically designed for 
 shipping-container based, modular data centers. A BCube topology comprises 
 hosts with multiple network interfaces connected to commodity switches. It 
 has the peculiar characteristic that switches are never directly connected 
 to each other and hosts are used also for packet forwarding. This 
-topology is defined as a recursive structure. A <img class="math" src="../../_images/math/3687acfda19fd1e178f6509b956bf1da7873a203.png" alt="Bcube_0"/> is composed
-of n hosts connected to an n-port switch. A <img class="math" src="../../_images/math/95b3b22e11515ceda9c110463d48076e1dac7e6a.png" alt="Bcube_1"/> is composed 
-of n <img class="math" src="../../_images/math/3687acfda19fd1e178f6509b956bf1da7873a203.png" alt="Bcube_0"/> connected to n n-port switches. A <img class="math" src="../../_images/math/fcf615df89843c332bfcd1858fdbac6feb9cf338.png" alt="Bcube_k"/> is
-composed of n <img class="math" src="../../_images/math/091d07e97f730f6bc92212ce3562dd5ca4c2aec4.png" alt="Bcube_{k-1}"/> connected to <img class="math" src="../../_images/math/7371e478d919c41803f3932047acd489c69687f4.png" alt="n^k"/> n-port switches.</p>
+topology is defined as a recursive structure. A <img class="math" src="../../_images/math/01b42788af008fd00648df107cdc451438d554c0.png" alt="Bcube_0"/> is composed
+of n hosts connected to an n-port switch. A <img class="math" src="../../_images/math/ea647b6e65589f1f7fba177d1793f3095ee2e49e.png" alt="Bcube_1"/> is composed 
+of n <img class="math" src="../../_images/math/01b42788af008fd00648df107cdc451438d554c0.png" alt="Bcube_0"/> connected to n n-port switches. A <img class="math" src="../../_images/math/5455c51063e454952cbb7113cb5b67623f4738dc.png" alt="Bcube_k"/> is
+composed of n <img class="math" src="../../_images/math/3405c8a84d4de6384017c6a4ad3738fd81384b1a.png" alt="Bcube_{k-1}"/> connected to <img class="math" src="../../_images/math/36185512ecf16aa767aacbb4b3319bc6309b8c2d.png" alt="n^k"/> n-port switches.</p>
 <dl class="docutils">
 <dt>This topology comprises:</dt>
 <dd><ul class="first last simple">
-<li><img class="math" src="../../_images/math/0d91ccd11363a7c1d32edcc7a28d8a66957e7a12.png" alt="n^(k+1)"/> hosts, each of them connected to <img class="math" src="../../_images/math/f05f085f774fc8ab50676b778b86a1f1d1114fc8.png" alt="k+1"/> switches</li>
-<li><img class="math" src="../../_images/math/6b384f1eaf27c6e2116370edd207f0c448250c0e.png" alt="n*(k+1)"/> switches, each of them having n ports</li>
+<li><img class="math" src="../../_images/math/84d8fec83ebbfa0cbac8e57887d6dcc966e5ce69.png" alt="n^(k+1)"/> hosts, each of them connected to <img class="math" src="../../_images/math/3494d6c050dcba63488def5cd4e3c183f1234306.png" alt="k+1"/> switches</li>
+<li><img class="math" src="../../_images/math/b6bc960be3d41362c0e9acdae2e05c035d980c68.png" alt="n*(k+1)"/> switches, each of them having n ports</li>
 </ul>
 </dd>
 </dl>
@@ -114,17 +112,17 @@ hierarchy it is located.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>k</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>k</strong> : int</p>
 <blockquote>
 <div><p>The level of Bcube</p>
 </div></blockquote>
 <p><strong>n</strong> : int</p>
 <blockquote>
-<div><p>The number of host per <img class="math" src="../../_images/math/3687acfda19fd1e178f6509b956bf1da7873a203.png" alt="Bcube_0"/></p>
+<div><p>The number of host per <img class="math" src="../../_images/math/01b42788af008fd00648df107cdc451438d554c0.png" alt="Bcube_0"/></p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>topology</strong> : DatacenterTopology</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>topology</strong> : DatacenterTopology</p>
 </td>
 </tr>
 </tbody>
@@ -168,14 +166,14 @@ USA. <a class="reference external" href="http://doi.acm.org/10.1145/1592568.1592
         <li class="right" >
           <a href="fnss.traffic.trafficmatrices.write_traffic_matrix.html" title="fnss.traffic.trafficmatrices.write_traffic_matrix"
              >previous</a> |</li>
-        <li><a href="../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >API Reference</a> &raquo;</li>
           <li><a href="../fnss.functions.html" >Functions</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

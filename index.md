@@ -3,14 +3,6 @@ layout: index
 title: Fast Network Simulation Setup
 ---
 
-### News
-**AIMS 2014 tutorial**
-> Lorenzo Saino gave a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html). Here you can download the slides and virtual machine image used for the tutorial:
-
-> * [fnss-vm.ova](https://dl.dropboxusercontent.com/u/6458698/fnss-vm.ova) (2.7 GB)
-> * [README.txt](https://dl.dropboxusercontent.com/u/6458698/README.txt)
-> * [slides.pdf](aims2014/slides.pdf)
-
 ### Overview
 Fast Network Simulation Setup (FNSS) is a toolchain allowing network researchers and engineers to simplify the process of setting up a network experiment scenario. It allows users to:
 
@@ -67,14 +59,14 @@ At this stage you are ready to use the Python core library. To use the Java or C
 
 You can either browse the code from the [FNSS GitHub repository](http://www.github.com/fnss/fnss) or choose among the following download options:
 
-#### Latest stable release (0.5.0)
+#### Latest stable release (0.6.0)
 
-Complete toolchain    | [tar.gz](https://github.com/fnss/fnss/archive/v0.5.0.tar.gz) | [zip](https://github.com/fnss/fnss/archive/v0.5.0.zip)
+Complete toolchain    | [tar.gz](https://github.com/fnss/fnss/archive/v0.6.0.tar.gz) | [zip](https://github.com/fnss/fnss/archive/v0.6.0.zip)
 ----------------------|:------------------------------------------------------------:|:-------------------------------------------------------:
-Core (Python) library | [tar.gz](download/core/fnss-core-0.5.0.tar.gz)               | [zip](download/core/fnss-core-0.5.0.zip)
-C++ library           | [tar.gz](download/cpp/fnss-cpp-api-0.5.0.tar.gz)             | [zip](download/cpp/fnss-cpp-api-0.5.0.zip)
-Java library          | [tar.gz](download/java/fnss-java-api-0.5.0-all.tar.gz)       | [zip](download/java/fnss-java-api-0.5.0-all.zip)
-ns-3 library          | [tar.gz](download/ns3/fnss-ns3-api-0.5.0.tar.gz)             | [zip](download/ns3/fnss-ns3-api-0.5.0.zip)
+Core (Python) library | [tar.gz](download/core/fnss-core-0.6.0.tar.gz)               | [zip](download/core/fnss-core-0.6.0.zip)
+C++ library           | [tar.gz](download/cpp/fnss-cpp-api-0.6.0.tar.gz)             | [zip](download/cpp/fnss-cpp-api-0.6.0.zip)
+Java library          | [tar.gz](download/java/fnss-java-api-0.6.0-all.tar.gz)       | [zip](download/java/fnss-java-api-0.6.0-all.zip)
+ns-3 library          | [tar.gz](download/ns3/fnss-ns3-api-0.6.0.tar.gz)             | [zip](download/ns3/fnss-ns3-api-0.6.0.zip)
 
 
 #### Development branch
@@ -98,10 +90,14 @@ C++ library           | [Browse](doc/cpp/) | [Browse](https://github.com/fnss/fn
 Java library          | [Browse](doc/java/) | [Browse](https://github.com/fnss/fnss/tree/master/java/examples)
 ns-3 library          | [Browse](doc/ns3/) | [Browse](https://github.com/fnss/fnss/tree/master/ns3/fnss/examples)
 
+Alternatively, you can have a look at 
+
 Further information about FNSS architecture and the models it implements can be found in this paper:
 
  L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf),
  in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013 \[[PDF](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf)\] \[[Slides](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13-slides.pdf)\]
+
+or in [these slides](aims2014/slides.pdf) that were used for a tutorial on FNSS at the [AIMS 2014 conference](http://www.aims-conference.org/2014/tutorials.html).
 
 
 ### Citing

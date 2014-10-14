@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>fnss.topologies.topology &mdash; FNSS 0.5.0 documentation</title>
+    <title>fnss.topologies.topology &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.5.0',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="../../../index.html" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -41,7 +39,7 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
@@ -69,9 +67,7 @@
           <div class="body">
             
   <h1>Source code for fnss.topologies.topology</h1><div class="highlight"><pre>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Provides basic functions and classes for operating on network topologies.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Provides basic functions and classes for operating on network topologies.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">xml.etree.cElementTree</span> <span class="kn">as</span> <span class="nn">ET</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">fnss.util</span> <span class="kn">as</span> <span class="nn">util</span>
@@ -90,14 +86,12 @@
 
 
 <span class="k">class</span> <span class="nc">BaseTopology</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Base class for generic topology. Provides utility methods for listing nodes</span>
-<span class="sd">    and edge properties. </span>
+    <span class="sd">&quot;&quot;&quot;Base class for generic topology. Provides utility methods for listing</span>
+<span class="sd">    nodes and edge properties. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="nf">capacities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a dictionary of all link capacities, keyed by link</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of all link capacities, keyed by link</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -118,14 +112,17 @@
         <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;delay&#39;</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a dictionary of all link weights, keyed by link</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of all link weights, keyed by link</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        weights : dict</span>
+<span class="sd">            A dictionary of all link weights, keyed by link</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;weight&#39;</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">buffers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a dictionary of all buffer sizes, keyed by interface</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of all buffer sizes, keyed by interface</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -137,8 +134,7 @@
         <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;buffer&#39;</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">stacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a dictionary of all node stacks, keyed by node</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of all node stacks, keyed by node</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -150,8 +146,7 @@
         <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;stack&#39;</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">applications</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a dictionary of all applications deployed, keyed by node</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary of all applications deployed, keyed by node</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -162,26 +157,28 @@
 
 
 <div class="viewcode-block" id="Topology"><a class="viewcode-back" href="../../../apidoc/fnss.classes.html#fnss.topologies.topology.Topology">[docs]</a><span class="k">class</span> <span class="nc">Topology</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">,</span> <span class="n">BaseTopology</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Base class for undirected topology</span>
-<span class="sd">    </span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    G : NetworkX Graph, optional</span>
-<span class="sd">        A graph that can be used to initialize the topology</span>
-<span class="sd">    **attr : attributes</span>
-<span class="sd">        Attributes of the graph</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Base class for undirected topology&quot;&quot;&quot;</span>
     
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize the topology</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize the topology</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : input graph</span>
+<span class="sd">            Data to initialize the topology.  If data=None (default) an empty</span>
+<span class="sd">            topology is created. The data can be an edge list, or any</span>
+<span class="sd">            FNSS Topology or NetworkX graph object.  If the corresponding</span>
+<span class="sd">            optional Python packages are installed the data can also be a NumPy</span>
+<span class="sd">            matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.</span>
+<span class="sd">        name : string, optional</span>
+<span class="sd">            An optional name for the graph. Default is &quot;&quot;</span>
+<span class="sd">        **kwargs : keyword arguments, optional</span>
+<span class="sd">            Attributes to add to graph as key=value pairs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Topology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Topology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Topology.copy"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.Topology.copy.html#fnss.topologies.topology.Topology.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a copy of the topology.</span>
+        <span class="sd">&quot;&quot;&quot;Return a copy of the topology.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -207,8 +204,7 @@
         <span class="k">return</span> <span class="n">Topology</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">Topology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
         </div>
 <div class="viewcode-block" id="Topology.subgraph"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.Topology.subgraph.html#fnss.topologies.topology.Topology.subgraph">[docs]</a>    <span class="k">def</span> <span class="nf">subgraph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbunch</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the subgraph induced on nodes in nbunch.</span>
+        <span class="sd">&quot;&quot;&quot;Return the subgraph induced on nodes in nbunch.</span>
 
 <span class="sd">        The induced subgraph of the graph contains the nodes in nbunch</span>
 <span class="sd">        and the edges between those nodes.</span>
@@ -249,8 +245,7 @@
         <span class="k">return</span> <span class="n">Topology</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">Topology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">nbunch</span><span class="p">))</span>
         </div>
 <div class="viewcode-block" id="Topology.to_directed"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.Topology.to_directed.html#fnss.topologies.topology.Topology.to_directed">[docs]</a>    <span class="k">def</span> <span class="nf">to_directed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a directed representation of the topology.</span>
+        <span class="sd">&quot;&quot;&quot;Return a directed representation of the topology.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -290,8 +285,7 @@
         <span class="k">return</span> <span class="n">DirectedTopology</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">Topology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_directed</span><span class="p">())</span>
     </div>
 <div class="viewcode-block" id="Topology.to_undirected"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.Topology.to_undirected.html#fnss.topologies.topology.Topology.to_undirected">[docs]</a>    <span class="k">def</span> <span class="nf">to_undirected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return an undirected copy of the topology.</span>
+        <span class="sd">&quot;&quot;&quot;Return an undirected copy of the topology.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -329,19 +323,28 @@
 
 </div></div>
 <div class="viewcode-block" id="DirectedTopology"><a class="viewcode-back" href="../../../apidoc/fnss.classes.html#fnss.topologies.topology.DirectedTopology">[docs]</a><span class="k">class</span> <span class="nc">DirectedTopology</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span> <span class="n">BaseTopology</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Base class for directed topology</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Base class for directed topology&quot;&quot;&quot;</span>
     
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize the topology</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize the topology</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : input graph</span>
+<span class="sd">            Data to initialize the topology.  If data=None (default) an empty</span>
+<span class="sd">            topology is created. The data can be an edge list, or any</span>
+<span class="sd">            FNSS Topology or NetworkX graph object.  If the corresponding</span>
+<span class="sd">            optional Python packages are installed the data can also be a NumPy</span>
+<span class="sd">            matrix or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.</span>
+<span class="sd">        name : string, optional</span>
+<span class="sd">            An optional name for the graph. Default is &quot;&quot;</span>
+<span class="sd">        **kwargs : keyword arguments, optional</span>
+<span class="sd">            Attributes to add to graph as key=value pairs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">DirectedTopology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="o">**</span><span class="n">attr</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DirectedTopology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="DirectedTopology.copy"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.DirectedTopology.copy.html#fnss.topologies.topology.DirectedTopology.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a copy of the topology.</span>
+        <span class="sd">&quot;&quot;&quot;Return a copy of the topology.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -366,8 +369,7 @@
         <span class="k">return</span> <span class="n">DirectedTopology</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">DirectedTopology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
         </div>
 <div class="viewcode-block" id="DirectedTopology.subgraph"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.DirectedTopology.subgraph.html#fnss.topologies.topology.DirectedTopology.subgraph">[docs]</a>    <span class="k">def</span> <span class="nf">subgraph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbunch</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return the subgraph induced on nodes in nbunch.</span>
+        <span class="sd">&quot;&quot;&quot;Return the subgraph induced on nodes in nbunch.</span>
 
 <span class="sd">        The induced subgraph of the graph contains the nodes in nbunch</span>
 <span class="sd">        and the edges between those nodes.</span>
@@ -408,8 +410,7 @@
         <span class="k">return</span> <span class="n">DirectedTopology</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">DirectedTopology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">nbunch</span><span class="p">))</span>
         </div>
 <div class="viewcode-block" id="DirectedTopology.to_directed"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.DirectedTopology.to_directed.html#fnss.topologies.topology.DirectedTopology.to_directed">[docs]</a>    <span class="k">def</span> <span class="nf">to_directed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return a directed representation of the topology.</span>
+        <span class="sd">&quot;&quot;&quot;Return a directed representation of the topology.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -449,8 +450,7 @@
         <span class="k">return</span> <span class="n">DirectedTopology</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">DirectedTopology</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_directed</span><span class="p">())</span>
     </div>
 <div class="viewcode-block" id="DirectedTopology.to_undirected"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.DirectedTopology.to_undirected.html#fnss.topologies.topology.DirectedTopology.to_undirected">[docs]</a>    <span class="k">def</span> <span class="nf">to_undirected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return an undirected copy of the topology.</span>
+        <span class="sd">&quot;&quot;&quot;Return an undirected copy of the topology.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -488,8 +488,7 @@
 
 </div></div>
 <div class="viewcode-block" id="od_pairs_from_topology"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.od_pairs_from_topology.html#fnss.topologies.topology.od_pairs_from_topology">[docs]</a><span class="k">def</span> <span class="nf">od_pairs_from_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculate all possible origin-destination pairs of the topology. </span>
+    <span class="sd">&quot;&quot;&quot;Calculate all possible origin-destination pairs of the topology. </span>
 <span class="sd">    This function does not simply calculate all possible pairs of the topology</span>
 <span class="sd">    nodes. Instead, it only returns pairs of nodes connected by at least</span>
 <span class="sd">    a path. </span>
@@ -520,10 +519,11 @@
 
 </div>
 <div class="viewcode-block" id="fan_in_out_capacities"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.fan_in_out_capacities.html#fnss.topologies.topology.fan_in_out_capacities">[docs]</a><span class="k">def</span> <span class="nf">fan_in_out_capacities</span><span class="p">(</span><span class="n">topology</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculate fan-in and fan-out capacities for all nodes of the topology. The</span>
-<span class="sd">    fan-in capacity of a node is the sum of capacities of all incoming links,</span>
-<span class="sd">    while the fan-out capacity is the sum of capacities of all outgoing links.</span>
+    <span class="sd">&quot;&quot;&quot;Calculate fan-in and fan-out capacities for all nodes of the topology.</span>
+<span class="sd">    </span>
+<span class="sd">    The fan-in capacity of a node is the sum of capacities of all incoming</span>
+<span class="sd">    links, while the fan-out capacity is the sum of capacities of all outgoing</span>
+<span class="sd">    links.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -571,8 +571,7 @@
 
 </div>
 <div class="viewcode-block" id="rename_edge_attribute"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.rename_edge_attribute.html#fnss.topologies.topology.rename_edge_attribute">[docs]</a><span class="k">def</span> <span class="nf">rename_edge_attribute</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">old_attr</span><span class="p">,</span> <span class="n">new_attr</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Rename all edges attributes with a specific name to a new name</span>
+    <span class="sd">&quot;&quot;&quot;Rename all edges attributes with a specific name to a new name</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -602,8 +601,7 @@
 
 </div>
 <div class="viewcode-block" id="rename_node_attribute"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.rename_node_attribute.html#fnss.topologies.topology.rename_node_attribute">[docs]</a><span class="k">def</span> <span class="nf">rename_node_attribute</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">old_attr</span><span class="p">,</span> <span class="n">new_attr</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Rename all nodes attributes with a specific name to a new name</span>
+    <span class="sd">&quot;&quot;&quot;Rename all nodes attributes with a specific name to a new name</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -633,8 +631,7 @@
 
 </div>
 <div class="viewcode-block" id="read_topology"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.read_topology.html#fnss.topologies.topology.read_topology">[docs]</a><span class="k">def</span> <span class="nf">read_topology</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#39;utf-8&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Read a topology from an XML file and returns either a Topology or a </span>
+    <span class="sd">&quot;&quot;&quot;Read a topology from an XML file and returns either a Topology or a </span>
 <span class="sd">    DirectedTopology object</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -647,6 +644,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    topology: Topology or DirectedTopology</span>
+<span class="sd">        The parsed topology</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
     <span class="n">head</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
@@ -701,8 +699,7 @@
 
 </div>
 <div class="viewcode-block" id="write_topology"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.topology.write_topology.html#fnss.topologies.topology.write_topology">[docs]</a><span class="k">def</span> <span class="nf">write_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">prettyprint</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Writes a topology object on an XML file</span>
+    <span class="sd">&quot;&quot;&quot;Write a topology object on an XML file</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -790,13 +787,13 @@
         <li class="right" >
           <a href="../../../np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

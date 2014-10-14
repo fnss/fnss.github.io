@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Functions &mdash; FNSS 0.5.0 documentation</title>
+    <title>Functions &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.5.0',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="../index.html" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="index.html" />
     <link rel="next" title="fnss.netconfig.buffers.clear_buffer_sizes" href="generated/fnss.netconfig.buffers.clear_buffer_sizes.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="generated/fnss.netconfig.buffers.clear_buffer_sizes.html" title="fnss.netconfig.buffers.clear_buffer_sizes"
              accesskey="N">next</a> |</li>
-        <li><a href="../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">API Reference</a> &raquo;</li> 
       </ul>
     </div>
@@ -55,60 +53,32 @@
   <ul>
 <li><a class="reference internal" href="#">Functions</a><ul>
 <li><a class="reference internal" href="#netconfig-package"><tt class="docutils literal"><span class="pre">netconfig</span></tt> package</a><ul>
-<li><a class="reference internal" href="#module-fnss.netconfig.buffers"><tt class="docutils literal"><span class="pre">buffers</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.netconfig.capacities"><tt class="docutils literal"><span class="pre">capacities</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.netconfig.delays"><tt class="docutils literal"><span class="pre">delays</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.netconfig.nodeconfig"><tt class="docutils literal"><span class="pre">nodeconfig</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.netconfig.weights"><tt class="docutils literal"><span class="pre">weights</span></tt> module</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-fnss.netconfig.buffers"><tt class="docutils literal"><span class="pre">buffers</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.netconfig.capacities"><tt class="docutils literal"><span class="pre">capacities</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.netconfig.delays"><tt class="docutils literal"><span class="pre">delays</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.netconfig.nodeconfig"><tt class="docutils literal"><span class="pre">nodeconfig</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.netconfig.weights"><tt class="docutils literal"><span class="pre">weights</span></tt> module</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#traffic-package"><tt class="docutils literal"><span class="pre">traffic</span></tt> package</a><ul>
-<li><a class="reference internal" href="#module-fnss.traffic.eventscheduling"><tt class="docutils literal"><span class="pre">eventscheduling</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.traffic.trafficmatrices"><tt class="docutils literal"><span class="pre">trafficmatrices</span></tt> module</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-fnss.traffic.eventscheduling"><tt class="docutils literal"><span class="pre">eventscheduling</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.traffic.trafficmatrices"><tt class="docutils literal"><span class="pre">trafficmatrices</span></tt> module</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#topologies-package"><tt class="docutils literal"><span class="pre">topologies</span></tt> package</a><ul>
-<li><a class="reference internal" href="#module-fnss.topologies.datacenter"><tt class="docutils literal"><span class="pre">datacenter</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.topologies.parsers"><tt class="docutils literal"><span class="pre">parsers</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.topologies.randmodels"><tt class="docutils literal"><span class="pre">randmodels</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.topologies.simplemodels"><tt class="docutils literal"><span class="pre">simplemodels</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.topologies.topology"><tt class="docutils literal"><span class="pre">topology</span></tt> module</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-fnss.topologies.datacenter"><tt class="docutils literal"><span class="pre">datacenter</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.topologies.parsers"><tt class="docutils literal"><span class="pre">parsers</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.topologies.randmodels"><tt class="docutils literal"><span class="pre">randmodels</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.topologies.simplemodels"><tt class="docutils literal"><span class="pre">simplemodels</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.topologies.topology"><tt class="docutils literal"><span class="pre">topology</span></tt> module</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#adapters-package"><tt class="docutils literal"><span class="pre">adapters</span></tt> package</a><ul>
-<li><a class="reference internal" href="#module-fnss.adapters.autonetkit"><tt class="docutils literal"><span class="pre">autonetkit</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.adapters.mn"><tt class="docutils literal"><span class="pre">mn</span></tt> module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-fnss.adapters.ns2"><tt class="docutils literal"><span class="pre">ns2</span></tt> module</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-fnss.adapters.autonetkit"><tt class="docutils literal"><span class="pre">autonetkit</span></tt> module</a></li>
+<li><a class="reference internal" href="#jfed-module"><tt class="docutils literal"><span class="pre">jfed</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.adapters.mn"><tt class="docutils literal"><span class="pre">mn</span></tt> module</a></li>
+<li><a class="reference internal" href="#module-fnss.adapters.ns2"><tt class="docutils literal"><span class="pre">ns2</span></tt> module</a></li>
+<li><a class="reference internal" href="#omnetpp-module"><tt class="docutils literal"><span class="pre">omnetpp</span></tt> module</a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +129,7 @@
 <td>Returns all the buffer sizes.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.netconfig.buffers.set_buffer_sizes_bw_delay_prod.html#fnss.netconfig.buffers.set_buffer_sizes_bw_delay_prod" title="fnss.netconfig.buffers.set_buffer_sizes_bw_delay_prod"><tt class="xref py py-obj docutils literal"><span class="pre">set_buffer_sizes_bw_delay_prod</span></tt></a>(topology[,&nbsp;...])</td>
-<td>Assign a buffer sizes proportionally to the product of link bandwidth and</td>
+<td>Assign a buffer sizes proportionally to the product of link bandwidth and  average network RTT.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.netconfig.buffers.set_buffer_sizes_constant.html#fnss.netconfig.buffers.set_buffer_sizes_constant" title="fnss.netconfig.buffers.set_buffer_sizes_constant"><tt class="xref py py-obj docutils literal"><span class="pre">set_buffer_sizes_constant</span></tt></a>(topology,&nbsp;buffer_size)</td>
 <td>Assign a constant buffer size to all selected interfaces</td>
@@ -221,10 +191,10 @@ to various models.</p>
 <td>Set random link capacities according to a uniform probability density function.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.netconfig.capacities.set_capacities_random_zipf.html#fnss.netconfig.capacities.set_capacities_random_zipf" title="fnss.netconfig.capacities.set_capacities_random_zipf"><tt class="xref py py-obj docutils literal"><span class="pre">set_capacities_random_zipf</span></tt></a>(topology,&nbsp;capacities)</td>
-<td>Set random link capacities according to a Zipf probability density</td>
+<td>Set random link capacities according to a Zipf probability density  function.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.netconfig.capacities.set_capacities_random_zipf_mandelbrot.html#fnss.netconfig.capacities.set_capacities_random_zipf_mandelbrot" title="fnss.netconfig.capacities.set_capacities_random_zipf_mandelbrot"><tt class="xref py py-obj docutils literal"><span class="pre">set_capacities_random_zipf_mandelbrot</span></tt></a>(...[,&nbsp;...])</td>
-<td>Set random link capacities according to a Zipf-Mandelbrot probability</td>
+<td>Set random link capacities according to a Zipf-Mandelbrot probability  density function.</td>
 </tr>
 </tbody>
 </table>
@@ -255,19 +225,19 @@ to various models.</p>
 </div>
 <div class="section" id="module-fnss.netconfig.nodeconfig">
 <span id="nodeconfig-module"></span><h3><tt class="xref py py-mod docutils literal"><span class="pre">nodeconfig</span></tt> module<a class="headerlink" href="#module-fnss.netconfig.nodeconfig" title="Permalink to this headline">¶</a></h3>
-<p>Provides functions to deploy and configure protocol stacks and applications on
-network nodes</p>
+<p>Provides functions to deploy and configure protocol stacks and applications
+on network nodes</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.add_application.html#fnss.netconfig.nodeconfig.add_application" title="fnss.netconfig.nodeconfig.add_application"><tt class="xref py py-obj docutils literal"><span class="pre">add_application</span></tt></a>(topology,&nbsp;node,&nbsp;name,&nbsp;properties)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.add_application.html#fnss.netconfig.nodeconfig.add_application" title="fnss.netconfig.nodeconfig.add_application"><tt class="xref py py-obj docutils literal"><span class="pre">add_application</span></tt></a>(topology,&nbsp;node,&nbsp;name[,&nbsp;...])</td>
 <td>Add an application to a node</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.add_stack.html#fnss.netconfig.nodeconfig.add_stack" title="fnss.netconfig.nodeconfig.add_stack"><tt class="xref py py-obj docutils literal"><span class="pre">add_stack</span></tt></a>(topology,&nbsp;node,&nbsp;name,&nbsp;properties)</td>
-<td>Set stack on a node</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.add_stack.html#fnss.netconfig.nodeconfig.add_stack" title="fnss.netconfig.nodeconfig.add_stack"><tt class="xref py py-obj docutils literal"><span class="pre">add_stack</span></tt></a>(topology,&nbsp;node,&nbsp;name[,&nbsp;properties])</td>
+<td>Set stack on a node.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.clear_applications.html#fnss.netconfig.nodeconfig.clear_applications" title="fnss.netconfig.nodeconfig.clear_applications"><tt class="xref py py-obj docutils literal"><span class="pre">clear_applications</span></tt></a>(topology)</td>
 <td>Remove all applications from all nodes of the topology</td>
@@ -281,7 +251,7 @@ network nodes</p>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.get_application_properties.html#fnss.netconfig.nodeconfig.get_application_properties" title="fnss.netconfig.nodeconfig.get_application_properties"><tt class="xref py py-obj docutils literal"><span class="pre">get_application_properties</span></tt></a>(topology,&nbsp;node,&nbsp;name)</td>
 <td>Return a dictionary containing all the properties of an application</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.get_stack.html#fnss.netconfig.nodeconfig.get_stack" title="fnss.netconfig.nodeconfig.get_stack"><tt class="xref py py-obj docutils literal"><span class="pre">get_stack</span></tt></a>(topology,&nbsp;node)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.get_stack.html#fnss.netconfig.nodeconfig.get_stack" title="fnss.netconfig.nodeconfig.get_stack"><tt class="xref py py-obj docutils literal"><span class="pre">get_stack</span></tt></a>(topology,&nbsp;node[,&nbsp;data])</td>
 <td>Return the stack of a node, if any</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.remove_application.html#fnss.netconfig.nodeconfig.remove_application" title="fnss.netconfig.nodeconfig.remove_application"><tt class="xref py py-obj docutils literal"><span class="pre">remove_application</span></tt></a>(topology,&nbsp;node[,&nbsp;name])</td>
@@ -370,13 +340,13 @@ XML files with provided functions.</p>
 <td>Calculate link utilization given a traffic matrix.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.traffic.trafficmatrices.read_traffic_matrix.html#fnss.traffic.trafficmatrices.read_traffic_matrix" title="fnss.traffic.trafficmatrices.read_traffic_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">read_traffic_matrix</span></tt></a>(path[,&nbsp;encoding])</td>
-<td>Parses a traffic matrix from a traffic matrix XML file. If the XML file</td>
+<td>Parses a traffic matrix from a traffic matrix XML file.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.traffic.trafficmatrices.sin_cyclostationary_traffic_matrix.html#fnss.traffic.trafficmatrices.sin_cyclostationary_traffic_matrix" title="fnss.traffic.trafficmatrices.sin_cyclostationary_traffic_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">sin_cyclostationary_traffic_matrix</span></tt></a>(topology,&nbsp;...)</td>
 <td>Return a cyclostationary sequence of traffic matrices, where traffic  volumes evolve over time as sin waves.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.traffic.trafficmatrices.static_traffic_matrix.html#fnss.traffic.trafficmatrices.static_traffic_matrix" title="fnss.traffic.trafficmatrices.static_traffic_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">static_traffic_matrix</span></tt></a>(topology,&nbsp;mean,&nbsp;stddev)</td>
-<td>Return a TrafficMatrix object, i.e. a single traffic matrix, representing</td>
+<td>Return a TrafficMatrix object, i.e.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.traffic.trafficmatrices.stationary_traffic_matrix.html#fnss.traffic.trafficmatrices.stationary_traffic_matrix" title="fnss.traffic.trafficmatrices.stationary_traffic_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">stationary_traffic_matrix</span></tt></a>(topology,&nbsp;mean,&nbsp;...)</td>
 <td>Return a stationary sequence of traffic matrices.</td>
@@ -464,16 +434,16 @@ models.</p>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.randmodels.barabasi_albert_topology.html#fnss.topologies.randmodels.barabasi_albert_topology" title="fnss.topologies.randmodels.barabasi_albert_topology"><tt class="xref py py-obj docutils literal"><span class="pre">barabasi_albert_topology</span></tt></a>(n,&nbsp;m,&nbsp;m0[,&nbsp;seed])</td>
-<td>Return a random topology using Barabasi-Albert preferential attachment</td>
+<td>Return a random topology using Barabasi-Albert preferential attachment  model.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.randmodels.erdos_renyi_topology.html#fnss.topologies.randmodels.erdos_renyi_topology" title="fnss.topologies.randmodels.erdos_renyi_topology"><tt class="xref py py-obj docutils literal"><span class="pre">erdos_renyi_topology</span></tt></a>(n,&nbsp;p[,&nbsp;seed,&nbsp;fast])</td>
-<td>Return a random graph <img class="math" src="../_images/math/4202f60034ad75b757db4ae94b40948448f1bc62.png" alt="G_{n,p}"/> (Erdos-Renyi graph, binomial</td>
+<td>Return a random graph <img class="math" src="../_images/math/27c5c2a56aa69a13c86638b5d77eed13214a3c3b.png" alt="G_{n,p}"/> (Erdos-Renyi graph, binomial  graph).</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.randmodels.extended_barabasi_albert_topology.html#fnss.topologies.randmodels.extended_barabasi_albert_topology" title="fnss.topologies.randmodels.extended_barabasi_albert_topology"><tt class="xref py py-obj docutils literal"><span class="pre">extended_barabasi_albert_topology</span></tt></a>(n,&nbsp;m,&nbsp;m0,&nbsp;p,&nbsp;q)</td>
-<td>Return a random topology using the extended Barabasi-Albert preferential</td>
+<td>Return a random topology using the extended Barabasi-Albert preferential  attachment model.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.randmodels.glp_topology.html#fnss.topologies.randmodels.glp_topology" title="fnss.topologies.randmodels.glp_topology"><tt class="xref py py-obj docutils literal"><span class="pre">glp_topology</span></tt></a>(n,&nbsp;m,&nbsp;m0,&nbsp;p,&nbsp;beta[,&nbsp;seed])</td>
-<td>Return a random topology using the Generalized Linear Preference (GLP)</td>
+<td>Return a random topology using the Generalized Linear Preference (GLP) preferential attachment model.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.randmodels.waxman_1_topology.html#fnss.topologies.randmodels.waxman_1_topology" title="fnss.topologies.randmodels.waxman_1_topology"><tt class="xref py py-obj docutils literal"><span class="pre">waxman_1_topology</span></tt></a>(n[,&nbsp;alpha,&nbsp;beta,&nbsp;L,&nbsp;...])</td>
 <td>Return a Waxman-1 random topology.</td>
@@ -512,7 +482,7 @@ models.</p>
 <td>Return a ring topology of n nodes</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.topologies.simplemodels.star_topology.html#fnss.topologies.simplemodels.star_topology" title="fnss.topologies.simplemodels.star_topology"><tt class="xref py py-obj docutils literal"><span class="pre">star_topology</span></tt></a>(n)</td>
-<td>Return a star (a.k.a hub-and-spoke) topology of <img class="math" src="../_images/math/0e3efd9b14723a92c2ae891fe27780d5f8e2b215.png" alt="n+1"/> nodes</td>
+<td>Return a star (a.k.a hub-and-spoke) topology of <img class="math" src="../_images/math/f1299887120e51fb9e64e2a29c4ede283c9fec3c.png" alt="n+1"/> nodes</td>
 </tr>
 </tbody>
 </table>
@@ -542,7 +512,7 @@ models.</p>
 <td>Read a topology from an XML file and returns either a Topology or a</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.topologies.topology.write_topology.html#fnss.topologies.topology.write_topology" title="fnss.topologies.topology.write_topology"><tt class="xref py py-obj docutils literal"><span class="pre">write_topology</span></tt></a>(topology,&nbsp;path[,&nbsp;encoding,&nbsp;...])</td>
-<td>Writes a topology object on an XML file</td>
+<td>Write a topology object on an XML file</td>
 </tr>
 </tbody>
 </table>
@@ -565,7 +535,27 @@ NetworkX graph objects compatible with AutoNetKit and viceversa.</p>
 <td>Convert an AutoNetKit graph into an FNSS Topology object.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.adapters.autonetkit.to_autonetkit.html#fnss.adapters.autonetkit.to_autonetkit" title="fnss.adapters.autonetkit.to_autonetkit"><tt class="xref py py-obj docutils literal"><span class="pre">to_autonetkit</span></tt></a>(topology)</td>
-<td>Convert an FNSS topology into a NetworkX graph object compatible for</td>
+<td>Convert an FNSS topology into a NetworkX graph object compatible for AutoNetKit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="jfed-module">
+<h3><tt class="xref py py-mod docutils literal"><span class="pre">jfed</span></tt> module<a class="headerlink" href="#jfed-module" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-fnss.adapters.omnetpp"></span><p>Omnet++ adapter</p>
+<p>This module contains the code for converting an FNSS topology object into a NED
+script to deploy such topology into Omnet++.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">from_jfed</span></tt></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">to_jfed</span></tt></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -585,7 +575,7 @@ topologies and viceversa.</p>
 <td>Convert a Mininet topology to an FNSS one.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.adapters.mn.to_mininet.html#fnss.adapters.mn.to_mininet" title="fnss.adapters.mn.to_mininet"><tt class="xref py py-obj docutils literal"><span class="pre">to_mininet</span></tt></a>(topology[,&nbsp;switches,&nbsp;hosts,&nbsp;...])</td>
-<td>Convert an FNSS topology to Mininet Topo object that can be used to</td>
+<td>Convert an FNSS topology to Mininet Topo object that can be used to deploy a Mininet network.</td>
 </tr>
 </tbody>
 </table>
@@ -602,10 +592,27 @@ script to deploy such topology into ns-2.</p>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="generated/fnss.adapters.ns2.to_ns2.html#fnss.adapters.ns2.to_ns2" title="fnss.adapters.ns2.to_ns2"><tt class="xref py py-obj docutils literal"><span class="pre">to_ns2</span></tt></a>(topology,&nbsp;path[,&nbsp;stacks])</td>
-<td>Convert topology object into an ns-2 Tcl script that deploys that</td>
+<td>Convert topology object into an ns-2 Tcl script that deploys that topology into ns-2.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/fnss.adapters.ns2.validate_ns2_stacks.html#fnss.adapters.ns2.validate_ns2_stacks" title="fnss.adapters.ns2.validate_ns2_stacks"><tt class="xref py py-obj docutils literal"><span class="pre">validate_ns2_stacks</span></tt></a>(topology)</td>
 <td>Validate whether the stacks and applications of a topology are valid for</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="omnetpp-module">
+<h3><tt class="xref py py-mod docutils literal"><span class="pre">omnetpp</span></tt> module<a class="headerlink" href="#omnetpp-module" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-fnss.adapters.omnetpp"></span><p>Omnet++ adapter</p>
+<p>This module contains the code for converting an FNSS topology object into a NED
+script to deploy such topology into Omnet++.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/fnss.adapters.omnetpp.to_omnetpp.html#fnss.adapters.omnetpp.to_omnetpp" title="fnss.adapters.omnetpp.to_omnetpp"><tt class="xref py py-obj docutils literal"><span class="pre">to_omnetpp</span></tt></a>(topology[,&nbsp;path])</td>
+<td>Convert an FNSS topology into an Omnet++ NED script.</td>
 </tr>
 </tbody>
 </table>
@@ -634,13 +641,13 @@ script to deploy such topology into ns-2.</p>
         <li class="right" >
           <a href="generated/fnss.netconfig.buffers.clear_buffer_sizes.html" title="fnss.netconfig.buffers.clear_buffer_sizes"
              >next</a> |</li>
-        <li><a href="../index.html">FNSS 0.5.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">FNSS 0.6.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >API Reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

@@ -198,6 +198,16 @@ Functions
     from_autonetkit
     to_autonetkit
 
+:mod:`jfed` module
+^^^^^^^^^^^^^^^^^
+
+.. automodule:: fnss.adapters.omnetpp
+.. autosummary::
+   :toctree: generated/
+
+	from_jfed
+    to_jfed
+
 :mod:`mn` module
 ^^^^^^^^^^^^^^^^
 
@@ -217,3 +227,12 @@ Functions
 
     to_ns2
     validate_ns2_stacks
+
+:mod:`omnetpp` module
+^^^^^^^^^^^^^^^^^
+
+.. automodule:: fnss.adapters.omnetpp
+.. autosummary::
+   :toctree: generated/
+
+    to_omnetpp

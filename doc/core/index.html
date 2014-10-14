@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Fast Network Simulation Setup (FNSS) &mdash; FNSS 0.5.0 documentation</title>
+    <title>Fast Network Simulation Setup (FNSS) &mdash; FNSS 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.5.0',
+        URL_ROOT:    './',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.5.0 documentation" href="#" />
+    <link rel="top" title="FNSS 0.6.0 documentation" href="#" />
     <link rel="next" title="Architecture" href="architecture.html" /> 
   </head>
   <body>
@@ -44,7 +42,7 @@
         <li class="right" >
           <a href="architecture.html" title="Architecture"
              accesskey="N">next</a> |</li>
-        <li><a href="#">FNSS 0.5.0 documentation</a> &raquo;</li> 
+        <li><a href="#">FNSS 0.6.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -52,9 +50,7 @@
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Fast Network Simulation Setup (FNSS)</a><ul>
-<li><a class="reference internal" href="#contents">Contents</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -96,8 +92,8 @@ These features include the ability to:</p>
 <li>Generate traffic matrices</li>
 <li>Generate event schedules</li>
 </ul>
-<p>The core libary in addition to the features listed above, contains adapters to export generated scnearios to a the following network simulators or emulators: <a class="reference external" href="http://www.isi.edu/nsnam/ns/">ns-2</a>, <a class="reference external" href="http://www.mininet.org/">Mininet</a> and <a class="reference external" href="http://www.autonetkit.org/">Autonetkit</a>.
-Generated expriment scenarios (i.e. topologies, event schedules and traffic matrices) can be saved into XML files and then imported by libraries written in other languages. Currently, FNSS provides generic Java and C++ libraries as well as a C++ library specific for the <a class="reference external" href="http://www.nsnam.org/">ns-3</a> simulator.
+<p>The core library in addition to the features listed above, contains adapters to export generated scenarios to a the following network simulators or emulators: <a class="reference external" href="http://www.isi.edu/nsnam/ns/">ns-2</a>, <a class="reference external" href="http://www.mininet.org/">Mininet</a>, <a class="reference external" href="http://www.omnetpp.org/">Omnet++</a>, <a class="reference external" href="http://jfed.iminds.be/">jFed</a> and <a class="reference external" href="http://www.autonetkit.org/">Autonetkit</a>.
+Generated experiment scenarios (i.e. topologies, event schedules and traffic matrices) can be saved into XML files and then imported by libraries written in other languages. Currently, FNSS provides generic Java and C++ libraries as well as a C++ library specific for the <a class="reference external" href="http://www.nsnam.org/">ns-3</a> simulator.
 These libraries can be downloaded from the <a class="reference external" href="http://fnss.github.io/">FNSS website</a>.</p>
 <p>The FNSS core library is released under the terms of the <a class="reference external" href="https://raw.github.com/fnss/fnss/master/core/LICENSE.txt">BSD license</a>.</p>
 <p>If you use FNSS for your paper, please cite the following publication:</p>
@@ -107,17 +103,18 @@ These libraries can be downloaded from the <a class="reference external" href="h
 in <em>Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS ‘13)</em>,
 Cannes, France, March 2013</div></blockquote>
 <p>The BibTeX entry is:</p>
-<div class="highlight-python"><pre>@inproceedings{fnss,
+<div class="highlight-python"><div class="highlight"><pre>@inproceedings{fnss,
      author = {Saino, Lorenzo and Cocora, Cosmin and Pavlou, George},
      title = {A Toolchain for Simplifying Network Simulation Setup},
      booktitle = {Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques},
-     series = {SIMUTOOLS '13},
+     series = {SIMUTOOLS &#39;13},
      year = {2013},
      location = {Cannes, France},
      numpages = {10},
      publisher = {ICST (Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering)},
      address = {ICST, Brussels, Belgium, Belgium},
-}</pre>
+}
+</pre></div>
 </div>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
@@ -193,8 +190,10 @@ Cannes, France, March 2013</div></blockquote>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="apidoc/fnss.functions.html#adapters-package"><tt class="docutils literal"><span class="pre">adapters</span></tt> package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="apidoc/fnss.functions.html#module-fnss.adapters.autonetkit"><tt class="docutils literal"><span class="pre">autonetkit</span></tt> module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/fnss.functions.html#jfed-module"><tt class="docutils literal"><span class="pre">jfed</span></tt> module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidoc/fnss.functions.html#module-fnss.adapters.mn"><tt class="docutils literal"><span class="pre">mn</span></tt> module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="apidoc/fnss.functions.html#module-fnss.adapters.ns2"><tt class="docutils literal"><span class="pre">ns2</span></tt> module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/fnss.functions.html#omnetpp-module"><tt class="docutils literal"><span class="pre">omnetpp</span></tt> module</a></li>
 </ul>
 </li>
 </ul>
@@ -207,13 +206,13 @@ Cannes, France, March 2013</div></blockquote>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/rocketfuel_tm.html">Rocketfuel Tm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/mininet_dumbbell.html">Mininet Dumbbell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/ns2.html">Ns2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/gen_event_schedule.html">Gen Event Schedule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/mininet_datacenter.html">Mininet Datacenter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/dynamic_topology.html">Dynamic Topology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/datacenter.html">Datacenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/mininet_datacenter.html">Mininet Datacenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/rocketfuel_tm.html">Rocketfuel Tm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/ns2.html">Ns2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/dynamic_topology.html">Dynamic Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/mininet_dumbbell.html">Mininet Dumbbell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/gen_event_schedule.html">Gen Event Schedule</a></li>
 </ul>
 </li>
 </ul>
@@ -249,12 +248,12 @@ Cannes, France, March 2013</div></blockquote>
         <li class="right" >
           <a href="architecture.html" title="Architecture"
              >next</a> |</li>
-        <li><a href="#">FNSS 0.5.0 documentation</a> &raquo;</li> 
+        <li><a href="#">FNSS 0.6.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2012-2014, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>
