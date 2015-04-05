@@ -13,8 +13,7 @@ Fast Network Simulation Setup (FNSS) is a toolchain allowing network researchers
 * Generate event schedules
 * Deploy network and workload configuration to a number of simulators and emulators
 
-The core library, which provides the features listed above, is written in [Python](http://www.python.org). FNSS also provides a set of adapters to export this configuration to [ns-2](http://www.isi.edu/nsnam/ns/), [ns-3](http://www.nsnam.org/), [Mininet](http://www.mininet.org) and [Autonetkit](http://www.autonetkit.org)
-as well as to other simulators or emulators through Python, Java and C++ APIs.
+FNSS comprises a core library (written in Python) and a set of adapters. The core library provides all capabilities for generating the experiment scenario. The adapters allow users to export scenarios generated with the core library to [ns-2](http://www.isi.edu/nsnam/ns/), [ns-3](http://www.nsnam.org/), [Mininet](http://www.mininet.org/), [Omnet++](http://www.omnetpp.org/), [Autonetkit](http://www.autonetkit.org/) and [jFed](http://jfed.iminds.be/) as well other simulators or emulators through the Python core library itself or the provided Java and C++ libraries.
 
 ### Usage
 To use FNSS you would normally use the following workflow.
@@ -34,26 +33,25 @@ If you wish to use FNSS to deploy experiment scenarios in a C++ or a Java progra
 
 If you use Ubuntu, you can install the FNSS core library along with the Python interpreter and all required dependencies by running the following script:
 
-    $ curl -L https://github.com/fnss/fnss/raw/master/core/ubuntu_install.sh | sh
+    $ wget https://github.com/fnss/fnss/raw/master/core/ubuntu_install.sh -O - | sh
 
 You need superuser privileges to run this script. If you don't trust running this script, you can inspect its source code [here](https://github.com/fnss/fnss/blob/master/core/ubuntu_install.sh).
 
 #### Other operating systems
 
-The easiest way to install the core Python library is to download it and install it from the [Python Package Index](http://pypi.python.org/pypi/fnss). To do so, you must have [Python](http://www.python.org) (required version >= 2.6, preferred >= 2.7) installed on your machine and either [`pip`](http://www.pip-installer.org/) or [`easy_install`](http://peak.telecommunity.com/DevCenter/EasyInstall).
+The easiest way to install the core Python library is to download it and install it from the [Python Package Index](http://pypi.python.org/pypi/fnss). To do so, you must have [Python](http://www.python.org) (required version >= 2.6, preferred >= 2.7) installed on your machine and [`pip`](http://www.pip-installer.org/), which is a package manager for Python.
 
-To install the FNSS core library using `easy_install` open a command shell and type:
-
-    $ easy_install fnss
-
-If you use `pip`, type instead:
+To install FNSS using `pip`, you just need to run the following command:
 
     $ pip fnss
    
-Depending on the configuration of your machine you may need to run `pip` or `easy_install` as superuser.
-Whether you use `pip` or `easy_install`, the commands reported above will download the latest version of the FNSS core library and install it on your machine together with all required dependencies.
+Depending on the configuration of your machine you may need to run `pip` as superuser. Running this command will download the latest version of the FNSS core library and install it on your machine together with all required dependencies.
 
 At this stage you are ready to use the Python core library. To use the Java or C++ APIs or the ns-3 adapters, please download the specific components that you need from the links below.
+
+#### Virtual Machine
+
+You can also run FNSS within a virtual machine. [This repository](https://github.com/fnss/fnss-vm/) contains scripts and documentation to set up a virtual machine with FNSS and all dependencies.
 
 ### Download
 
@@ -89,8 +87,6 @@ Core (Python) library |  [Browse](doc/core/) | [Browse](https://github.com/fnss/
 C++ library           | [Browse](doc/cpp/) | [Browse](https://github.com/fnss/fnss/tree/master/cpp/examples)
 Java library          | [Browse](doc/java/) | [Browse](https://github.com/fnss/fnss/tree/master/java/examples)
 ns-3 library          | [Browse](doc/ns3/) | [Browse](https://github.com/fnss/fnss/tree/master/ns3/fnss/examples)
-
-Alternatively, you can have a look at 
 
 Further information about FNSS architecture and the models it implements can be found in this paper:
 
