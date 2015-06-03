@@ -57,14 +57,14 @@ You can also run FNSS within a virtual machine. [This repository](https://github
 
 You can either browse the code from the [FNSS GitHub repository](http://www.github.com/fnss/fnss) or choose among the following download options:
 
-#### Latest stable release (0.6.0)
+#### Latest stable release (0.6.1)
 
-Complete toolchain    | [tar.gz](https://github.com/fnss/fnss/archive/v0.6.0.tar.gz) | [zip](https://github.com/fnss/fnss/archive/v0.6.0.zip)
+Complete toolchain    | [tar.gz](https://github.com/fnss/fnss/archive/v0.6.1.tar.gz) | [zip](https://github.com/fnss/fnss/archive/v0.6.1.zip)
 ----------------------|:------------------------------------------------------------:|:-------------------------------------------------------:
-Core (Python) library | [tar.gz](download/core/fnss-core-0.6.0.tar.gz)               | [zip](download/core/fnss-core-0.6.0.zip)
-C++ library           | [tar.gz](download/cpp/fnss-cpp-api-0.6.0.tar.gz)             | [zip](download/cpp/fnss-cpp-api-0.6.0.zip)
-Java library          | [tar.gz](download/java/fnss-java-api-0.6.0-all.tar.gz)       | [zip](download/java/fnss-java-api-0.6.0-all.zip)
-ns-3 library          | [tar.gz](download/ns3/fnss-ns3-api-0.6.0.tar.gz)             | [zip](download/ns3/fnss-ns3-api-0.6.0.zip)
+Core (Python) library | [tar.gz](download/core/fnss-core-0.6.1.tar.gz)               | [zip](download/core/fnss-core-0.6.1.zip)
+C++ library           | [tar.gz](download/cpp/fnss-cpp-api-0.6.1.tar.gz)             | [zip](download/cpp/fnss-cpp-api-0.6.1.zip)
+Java library          | [tar.gz](download/java/fnss-java-api-0.6.1-all.tar.gz)       | [zip](download/java/fnss-java-api-0.6.1-all.zip)
+ns-3 library          | [tar.gz](download/ns3/fnss-ns3-api-0.6.1.tar.gz)             | [zip](download/ns3/fnss-ns3-api-0.6.1.zip)
 
 
 #### Development branch

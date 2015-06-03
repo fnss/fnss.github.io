@@ -91,40 +91,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PARSER_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;topology.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;event-schedule.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;traffic-matrix-sequence.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;rapidxml.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>fnss {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;edge.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;quantity.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;event-schedule.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;traffic-matrix-sequence.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;rapidxml.hpp&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classfnss_1_1Parser.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfnss_1_1Parser.html">Parser</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1Topology.html">Topology</a> <a class="code" href="classfnss_1_1Parser.html#aab4dbf887ba518cdeb092015aa88bc28">parseTopology</a>(<span class="keyword">const</span> std::string &amp;file);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1EventSchedule.html">EventSchedule</a> <a class="code" href="classfnss_1_1Parser.html#a83423423765eded0ee938086941b4ffc">parseEventSchedule</a>(<span class="keyword">const</span> std::string &amp;file);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1TrafficMatrixSequence.html">TrafficMatrixSequence</a> <a class="code" href="classfnss_1_1Parser.html#a858b09fae1628fe6d715fb1a8e0c4527">parseTrafficMatrixSequence</a>(<span class="keyword">const</span> std::string &amp;file);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classfnss_1_1Parser.html">Parser</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1PropertyContainer.html">PropertyContainer</a> parseProperties(rapidxml::xml_node&lt;&gt;* node);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">static</span> std::string getAttribute(rapidxml::xml_node&lt;&gt;* node,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                                                        <span class="keyword">const</span> std::string &amp;name);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">double</span> AtoI(<span class="keyword">const</span> std::string &amp;value);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">//namespace</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>fnss {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classfnss_1_1Parser.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfnss_1_1Parser.html">Parser</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1Topology.html">Topology</a> <a class="code" href="classfnss_1_1Parser.html#aab4dbf887ba518cdeb092015aa88bc28">parseTopology</a>(<span class="keyword">const</span> std::string &amp;file);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1EventSchedule.html">EventSchedule</a> <a class="code" href="classfnss_1_1Parser.html#a83423423765eded0ee938086941b4ffc">parseEventSchedule</a>(<span class="keyword">const</span> std::string &amp;file);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1TrafficMatrixSequence.html">TrafficMatrixSequence</a> <a class="code" href="classfnss_1_1Parser.html#a858b09fae1628fe6d715fb1a8e0c4527">parseTrafficMatrixSequence</a>(<span class="keyword">const</span> std::string &amp;file);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classfnss_1_1Parser.html">Parser</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">static</span> <a class="code" href="classfnss_1_1PropertyContainer.html">PropertyContainer</a> parseProperties(rapidxml::xml_node&lt;&gt;* node);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">static</span> std::string getAttribute(rapidxml::xml_node&lt;&gt;* node,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                                                        <span class="keyword">const</span> std::string &amp;name);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">double</span> AtoI(<span class="keyword">const</span> std::string &amp;value);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif //PARSER_H</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">//namespace</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif //PARSER_H</span></div>
 <div class="ttc" id="classfnss_1_1TrafficMatrixSequence_html"><div class="ttname"><a href="classfnss_1_1TrafficMatrixSequence.html">fnss::TrafficMatrixSequence</a></div><div class="ttdef"><b>Definition:</b> traffic-matrix-sequence.h:20</div></div>
 <div class="ttc" id="classfnss_1_1EventSchedule_html"><div class="ttname"><a href="classfnss_1_1EventSchedule.html">fnss::EventSchedule</a></div><div class="ttdef"><b>Definition:</b> event-schedule.h:21</div></div>
 <div class="ttc" id="classfnss_1_1Topology_html"><div class="ttname"><a href="classfnss_1_1Topology.html">fnss::Topology</a></div><div class="ttdef"><b>Definition:</b> topology.h:22</div></div>
-<div class="ttc" id="classfnss_1_1Parser_html"><div class="ttname"><a href="classfnss_1_1Parser.html">fnss::Parser</a></div><div class="ttdef"><b>Definition:</b> parser.h:18</div></div>
-<div class="ttc" id="classfnss_1_1Parser_html_a83423423765eded0ee938086941b4ffc"><div class="ttname"><a href="classfnss_1_1Parser.html#a83423423765eded0ee938086941b4ffc">fnss::Parser::parseEventSchedule</a></div><div class="ttdeci">static EventSchedule parseEventSchedule(const std::string &amp;file)</div><div class="ttdef"><b>Definition:</b> parser.cpp:100</div></div>
-<div class="ttc" id="classfnss_1_1Parser_html_a858b09fae1628fe6d715fb1a8e0c4527"><div class="ttname"><a href="classfnss_1_1Parser.html#a858b09fae1628fe6d715fb1a8e0c4527">fnss::Parser::parseTrafficMatrixSequence</a></div><div class="ttdeci">static TrafficMatrixSequence parseTrafficMatrixSequence(const std::string &amp;file)</div><div class="ttdef"><b>Definition:</b> parser.cpp:151</div></div>
+<div class="ttc" id="classfnss_1_1Parser_html"><div class="ttname"><a href="classfnss_1_1Parser.html">fnss::Parser</a></div><div class="ttdef"><b>Definition:</b> parser.h:20</div></div>
+<div class="ttc" id="classfnss_1_1Parser_html_a83423423765eded0ee938086941b4ffc"><div class="ttname"><a href="classfnss_1_1Parser.html#a83423423765eded0ee938086941b4ffc">fnss::Parser::parseEventSchedule</a></div><div class="ttdeci">static EventSchedule parseEventSchedule(const std::string &amp;file)</div><div class="ttdef"><b>Definition:</b> parser.cpp:118</div></div>
+<div class="ttc" id="classfnss_1_1Parser_html_a858b09fae1628fe6d715fb1a8e0c4527"><div class="ttname"><a href="classfnss_1_1Parser.html#a858b09fae1628fe6d715fb1a8e0c4527">fnss::Parser::parseTrafficMatrixSequence</a></div><div class="ttdeci">static TrafficMatrixSequence parseTrafficMatrixSequence(const std::string &amp;file)</div><div class="ttdef"><b>Definition:</b> parser.cpp:169</div></div>
 <div class="ttc" id="classfnss_1_1Parser_html_aab4dbf887ba518cdeb092015aa88bc28"><div class="ttname"><a href="classfnss_1_1Parser.html#aab4dbf887ba518cdeb092015aa88bc28">fnss::Parser::parseTopology</a></div><div class="ttdeci">static Topology parseTopology(const std::string &amp;file)</div><div class="ttdef"><b>Definition:</b> parser.cpp:9</div></div>
 <div class="ttc" id="classfnss_1_1PropertyContainer_html"><div class="ttname"><a href="classfnss_1_1PropertyContainer.html">fnss::PropertyContainer</a></div><div class="ttdef"><b>Definition:</b> property-container.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
