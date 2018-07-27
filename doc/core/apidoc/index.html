@@ -1,34 +1,33 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>API Reference &mdash; FNSS 0.6.1 documentation</title>
-    
+    <title>API Reference &#8212; FNSS 0.7.0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.6.1',
+        VERSION:     '0.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="FNSS 0.6.1 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Classes" href="fnss.classes.html" />
     <link rel="prev" title="Install" href="../install.html" /> 
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -38,18 +37,15 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="fnss.classes.html" title="Classes"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../install.html" title="Install"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">FNSS 0.6.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">FNSS 0.7.0 documentation</a> &#187;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="../install.html"
@@ -57,17 +53,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="fnss.classes.html"
                         title="next chapter">Classes</a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -76,7 +69,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
@@ -104,8 +97,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fnss.functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#netconfig-package"><tt class="docutils literal"><span class="pre">netconfig</span></tt> package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.buffers"><tt class="docutils literal"><span class="pre">buffers</span></tt> module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#netconfig-package"><code class="docutils literal"><span class="pre">netconfig</span></code> package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.buffers"><code class="docutils literal"><span class="pre">buffers</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.buffers.clear_buffer_sizes.html">fnss.netconfig.buffers.clear_buffer_sizes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.buffers.get_buffer_sizes.html">fnss.netconfig.buffers.get_buffer_sizes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.buffers.set_buffer_sizes_bw_delay_prod.html">fnss.netconfig.buffers.set_buffer_sizes_bw_delay_prod</a></li>
@@ -113,7 +106,7 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.buffers.set_buffer_sizes_link_bandwidth.html">fnss.netconfig.buffers.set_buffer_sizes_link_bandwidth</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.capacities"><tt class="docutils literal"><span class="pre">capacities</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.capacities"><code class="docutils literal"><span class="pre">capacities</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.capacities.clear_capacities.html">fnss.netconfig.capacities.clear_capacities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.capacities.get_capacities.html">fnss.netconfig.capacities.get_capacities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.capacities.set_capacities_betweenness_gravity.html">fnss.netconfig.capacities.set_capacities_betweenness_gravity</a></li>
@@ -131,14 +124,14 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.capacities.set_capacities_random_zipf_mandelbrot.html">fnss.netconfig.capacities.set_capacities_random_zipf_mandelbrot</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.delays"><tt class="docutils literal"><span class="pre">delays</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.delays"><code class="docutils literal"><span class="pre">delays</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.delays.clear_delays.html">fnss.netconfig.delays.clear_delays</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.delays.get_delays.html">fnss.netconfig.delays.get_delays</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.delays.set_delays_constant.html">fnss.netconfig.delays.set_delays_constant</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.delays.set_delays_geo_distance.html">fnss.netconfig.delays.set_delays_geo_distance</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.nodeconfig"><tt class="docutils literal"><span class="pre">nodeconfig</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.nodeconfig"><code class="docutils literal"><span class="pre">nodeconfig</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.add_application.html">fnss.netconfig.nodeconfig.add_application</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.add_stack.html">fnss.netconfig.nodeconfig.add_stack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.clear_applications.html">fnss.netconfig.nodeconfig.clear_applications</a></li>
@@ -150,7 +143,7 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.nodeconfig.remove_stack.html">fnss.netconfig.nodeconfig.remove_stack</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.weights"><tt class="docutils literal"><span class="pre">weights</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.netconfig.weights"><code class="docutils literal"><span class="pre">weights</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.weights.clear_weights.html">fnss.netconfig.weights.clear_weights</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.weights.get_weights.html">fnss.netconfig.weights.get_weights</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.netconfig.weights.set_weights_constant.html">fnss.netconfig.weights.set_weights_constant</a></li>
@@ -160,15 +153,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#traffic-package"><tt class="docutils literal"><span class="pre">traffic</span></tt> package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.traffic.eventscheduling"><tt class="docutils literal"><span class="pre">eventscheduling</span></tt> module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#traffic-package"><code class="docutils literal"><span class="pre">traffic</span></code> package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.traffic.eventscheduling"><code class="docutils literal"><span class="pre">eventscheduling</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.traffic.eventscheduling.deterministic_process_event_schedule.html">fnss.traffic.eventscheduling.deterministic_process_event_schedule</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.traffic.eventscheduling.poisson_process_event_schedule.html">fnss.traffic.eventscheduling.poisson_process_event_schedule</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.traffic.eventscheduling.read_event_schedule.html">fnss.traffic.eventscheduling.read_event_schedule</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.traffic.eventscheduling.write_event_schedule.html">fnss.traffic.eventscheduling.write_event_schedule</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.traffic.trafficmatrices"><tt class="docutils literal"><span class="pre">trafficmatrices</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.traffic.trafficmatrices"><code class="docutils literal"><span class="pre">trafficmatrices</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.traffic.trafficmatrices.link_loads.html">fnss.traffic.trafficmatrices.link_loads</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.traffic.trafficmatrices.read_traffic_matrix.html">fnss.traffic.trafficmatrices.read_traffic_matrix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.traffic.trafficmatrices.sin_cyclostationary_traffic_matrix.html">fnss.traffic.trafficmatrices.sin_cyclostationary_traffic_matrix</a></li>
@@ -180,15 +173,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#topologies-package"><tt class="docutils literal"><span class="pre">topologies</span></tt> package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.datacenter"><tt class="docutils literal"><span class="pre">datacenter</span></tt> module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#topologies-package"><code class="docutils literal"><span class="pre">topologies</span></code> package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.datacenter"><code class="docutils literal"><span class="pre">datacenter</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.datacenter.bcube_topology.html">fnss.topologies.datacenter.bcube_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.datacenter.fat_tree_topology.html">fnss.topologies.datacenter.fat_tree_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.datacenter.three_tier_topology.html">fnss.topologies.datacenter.three_tier_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.datacenter.two_tier_topology.html">fnss.topologies.datacenter.two_tier_topology</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.parsers"><tt class="docutils literal"><span class="pre">parsers</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.parsers"><code class="docutils literal"><span class="pre">parsers</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.parsers.parse_abilene.html">fnss.topologies.parsers.parse_abilene</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.parsers.parse_ashiip.html">fnss.topologies.parsers.parse_ashiip</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.parsers.parse_brite.html">fnss.topologies.parsers.parse_brite</a></li>
@@ -199,7 +192,7 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.parsers.parse_topology_zoo.html">fnss.topologies.parsers.parse_topology_zoo</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.randmodels"><tt class="docutils literal"><span class="pre">randmodels</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.randmodels"><code class="docutils literal"><span class="pre">randmodels</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.randmodels.barabasi_albert_topology.html">fnss.topologies.randmodels.barabasi_albert_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.randmodels.erdos_renyi_topology.html">fnss.topologies.randmodels.erdos_renyi_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.randmodels.extended_barabasi_albert_topology.html">fnss.topologies.randmodels.extended_barabasi_albert_topology</a></li>
@@ -208,7 +201,7 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.randmodels.waxman_2_topology.html">fnss.topologies.randmodels.waxman_2_topology</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.simplemodels"><tt class="docutils literal"><span class="pre">simplemodels</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.simplemodels"><code class="docutils literal"><span class="pre">simplemodels</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.simplemodels.chord_topology.html">fnss.topologies.simplemodels.chord_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.simplemodels.dumbbell_topology.html">fnss.topologies.simplemodels.dumbbell_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.simplemodels.full_mesh_topology.html">fnss.topologies.simplemodels.full_mesh_topology</a></li>
@@ -218,7 +211,7 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.simplemodels.star_topology.html">fnss.topologies.simplemodels.star_topology</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.topology"><tt class="docutils literal"><span class="pre">topology</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.topologies.topology"><code class="docutils literal"><span class="pre">topology</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.topology.fan_in_out_capacities.html">fnss.topologies.topology.fan_in_out_capacities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.topology.od_pairs_from_topology.html">fnss.topologies.topology.od_pairs_from_topology</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.topologies.topology.rename_edge_attribute.html">fnss.topologies.topology.rename_edge_attribute</a></li>
@@ -229,26 +222,28 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#adapters-package"><tt class="docutils literal"><span class="pre">adapters</span></tt> package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.autonetkit"><tt class="docutils literal"><span class="pre">autonetkit</span></tt> module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fnss.functions.html#adapters-package"><code class="docutils literal"><span class="pre">adapters</span></code> package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.autonetkit"><code class="docutils literal"><span class="pre">autonetkit</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.autonetkit.from_autonetkit.html">fnss.adapters.autonetkit.from_autonetkit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.autonetkit.to_autonetkit.html">fnss.adapters.autonetkit.to_autonetkit</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#jfed-module"><tt class="docutils literal"><span class="pre">jfed</span></tt> module</a><ul class="simple">
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.jfed"><code class="docutils literal"><span class="pre">jfed</span></code> module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.jfed.from_jfed.html">fnss.adapters.jfed.from_jfed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.jfed.to_jfed.html">fnss.adapters.jfed.to_jfed</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.mn"><tt class="docutils literal"><span class="pre">mn</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.mn"><code class="docutils literal"><span class="pre">mn</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.mn.from_mininet.html">fnss.adapters.mn.from_mininet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.mn.to_mininet.html">fnss.adapters.mn.to_mininet</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.ns2"><tt class="docutils literal"><span class="pre">ns2</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.ns2"><code class="docutils literal"><span class="pre">ns2</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.ns2.to_ns2.html">fnss.adapters.ns2.to_ns2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.ns2.validate_ns2_stacks.html">fnss.adapters.ns2.validate_ns2_stacks</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#omnetpp-module"><tt class="docutils literal"><span class="pre">omnetpp</span></tt> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fnss.functions.html#module-fnss.adapters.omnetpp"><code class="docutils literal"><span class="pre">omnetpp</span></code> module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/fnss.adapters.omnetpp.to_omnetpp.html">fnss.adapters.omnetpp.to_omnetpp</a></li>
 </ul>
 </li>
@@ -271,7 +266,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -281,20 +276,17 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="fnss.classes.html" title="Classes"
              >next</a> |</li>
         <li class="right" >
           <a href="../install.html" title="Install"
              >previous</a> |</li>
-        <li><a href="../index.html">FNSS 0.6.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">FNSS 0.7.0 documentation</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2012-2015, Lorenzo Saino, Cosmin Cocora.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012-2018, Lorenzo Saino, Cosmin Cocora.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
     </div>
   </body>
 </html>
