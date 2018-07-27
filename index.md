@@ -66,8 +66,8 @@ ns-3 library          | [Browse](doc/ns3/) | [Browse](https://github.com/fnss/fn
 
 Further information about FNSS architecture and the models it implements can be found in this paper:
 
- L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf),
- in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013 \[[PDF](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf)\] \[[Slides](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13-slides.pdf)\]
+ L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](https://lorenzosaino.github.io/publications/fnss-simutools13.pdf),
+ in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013 \[[PDF](https://lorenzosaino.github.io/publications/fnss-simutools13.pdf)\] \[[Slides](https://lorenzosaino.github.io/publications/fnss-simutools13-slides.pdf)\]
 
 You can also have a look at [these slides](aims2014/slides.pdf) that were used for a tutorial on FNSS given at the [AIMS 2014 conference](http://www.aims-conference.org/2014/labs.html).
 
@@ -79,7 +79,7 @@ Code contributions are very welcome. If you have code you wish to contribute, pl
 ### Citing
 If you cite FNSS in your paper, please refer to the following publication:
 
-L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](http://www.ee.ucl.ac.uk/~lsaino/publications/fnss-simutools13.pdf), in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013
+L. Saino, C. Cocora, G. Pavlou, [A Toolchain for Simplifying Network Simulation Setup](https://lorenzosaino.github.io/publications/fnss-simutools13.pdf), in *Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13)*, Cannes, France, March 2013
 
     @inproceedings{fnss,
          author = {Saino, Lorenzo and Cocora, Cosmin and Pavlou, George},
