@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.topologies.datacenter &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.topologies.datacenter &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -97,13 +97,13 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the list of switch nodes in the topology</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;switch&#39;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;switch&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="DatacenterTopology.hosts"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.datacenter.DatacenterTopology.hosts.html#fnss.topologies.datacenter.DatacenterTopology.hosts">[docs]</a>    <span class="k">def</span> <span class="nf">hosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the list of host nodes in the topology</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;host&#39;</span><span class="p">]</span></div></div>
+        <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;host&#39;</span><span class="p">]</span></div></div>
 
 
 <div class="viewcode-block" id="two_tier_topology"><a class="viewcode-back" href="../../../apidoc/generated/fnss.topologies.datacenter.two_tier_topology.html#fnss.topologies.datacenter.two_tier_topology">[docs]</a><span class="k">def</span> <span class="nf">two_tier_topology</span><span class="p">(</span><span class="n">n_core</span><span class="p">,</span> <span class="n">n_edge</span><span class="p">,</span> <span class="n">n_hosts</span><span class="p">):</span>
@@ -148,8 +148,8 @@
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_core</span><span class="p">):</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;core&#39;</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;switch&#39;</span>
-        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topo</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
-            <span class="n">topo</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;core_edge&#39;</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topo</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+            <span class="n">topo</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;core_edge&#39;</span>
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_core</span><span class="p">,</span> <span class="n">n_core</span> <span class="o">+</span> <span class="n">n_edge</span><span class="p">):</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;edge&#39;</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;switch&#39;</span>
@@ -218,8 +218,8 @@
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_core</span><span class="p">):</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;core&#39;</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;switch&#39;</span>
-        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topo</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
-            <span class="n">topo</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;core_aggregation&#39;</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topo</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+            <span class="n">topo</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;core_aggregation&#39;</span>
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_core</span><span class="p">,</span> <span class="n">n_core</span> <span class="o">+</span> <span class="n">n_aggregation</span><span class="p">):</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;aggregation&#39;</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;switch&#39;</span>
@@ -383,7 +383,7 @@
             <span class="n">aggr_node</span> <span class="o">=</span> <span class="n">n_core</span> <span class="o">+</span> <span class="p">(</span><span class="n">core_node</span> <span class="o">//</span> <span class="p">(</span><span class="n">k</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">pod</span><span class="p">)</span>
             <span class="n">topo</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">core_node</span><span class="p">,</span> <span class="n">aggr_node</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;core_aggregation&#39;</span><span class="p">)</span>
     <span class="c1"># Create hosts and connect them to edge switches</span>
-    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topo</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">()</span> <span class="k">if</span> <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;layer&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;edge&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topo</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">topo</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;layer&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;edge&#39;</span><span class="p">]:</span>
         <span class="n">leaf_nodes</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">topo</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">(),</span>
                            <span class="n">topo</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span> <span class="o">+</span> <span class="n">k</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;leaf&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;host&#39;</span><span class="p">,</span>
@@ -406,7 +406,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

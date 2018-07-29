@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.netconfig.weights &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.netconfig.weights &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -90,14 +90,14 @@
 <span class="sd">    &gt;&gt;&gt; fnss.set_weights_inverse_capacity(topology)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">max_capacity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">((</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
-                                  <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">())))</span>
+        <span class="n">max_capacity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">((</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
+                                  <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">())))</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All links must have a capacity attribute&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">capacity</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">capacity</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
         <span class="n">weight</span> <span class="o">=</span> <span class="n">max_capacity</span> <span class="o">/</span> <span class="n">capacity</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span></div>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span></div>
 
 
 <div class="viewcode-block" id="set_weights_delays"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.weights.set_weights_delays.html#fnss.netconfig.weights.set_weights_delays">[docs]</a><span class="k">def</span> <span class="nf">set_weights_delays</span><span class="p">(</span><span class="n">topology</span><span class="p">):</span>
@@ -119,14 +119,14 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">min_delay</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">min</span><span class="p">((</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
-                               <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">())))</span>
+        <span class="n">min_delay</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">min</span><span class="p">((</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
+                               <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">())))</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All links must have a delay attribute&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">delay</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">delay</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
         <span class="n">weight</span> <span class="o">=</span> <span class="n">delay</span> <span class="o">/</span> <span class="n">min_delay</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span></div>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span></div>
 
 
 <div class="viewcode-block" id="set_weights_constant"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.weights.set_weights_constant.html#fnss.netconfig.weights.set_weights_constant">[docs]</a><span class="k">def</span> <span class="nf">set_weights_constant</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">links</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -150,9 +150,9 @@
 <span class="sd">    &gt;&gt;&gt; topology.add_edges_from([(1, 2), (5, 8), (4, 5), (1, 7)])</span>
 <span class="sd">    &gt;&gt;&gt; fnss.set_weights_constant(topology, weight=1.0, links=[(1, 2), (5, 8), (4, 5)])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">links</span> <span class="ow">or</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">links</span> <span class="ow">or</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span></div>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span></div>
 
 
 <div class="viewcode-block" id="get_weights"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.weights.get_weights.html#fnss.netconfig.weights.get_weights">[docs]</a><span class="k">def</span> <span class="nf">get_weights</span><span class="p">(</span><span class="n">topology</span><span class="p">):</span>
@@ -189,8 +189,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    topology : Topology</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 </pre></div>
 
           </div>
@@ -207,7 +207,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

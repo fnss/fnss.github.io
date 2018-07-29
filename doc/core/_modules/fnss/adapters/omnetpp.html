@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.adapters.omnetpp &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.adapters.omnetpp &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -93,8 +93,8 @@
 <span class="s2">name = &quot;net&quot; if name == &quot;&quot; else re.sub(&quot;[^A-Za-z0-9]&quot;, &quot;_&quot;, name).strip(&quot; _&quot;)</span>
 
 <span class="s2"># Get numerical ID of a node</span>
-<span class="s2">nodes = topology.nodes()</span>
-<span class="s2">node_map = dict((nodes[i], i) for i in range(len(nodes)))</span>
+<span class="s2">nodes = list(topology.nodes())</span>
+<span class="s2">node_map = {node: i for i, node in enumerate(nodes)}</span>
 
 <span class="s2">%&gt;</span>
 <span class="s2">// This is the module modelling the nodes of network</span>
@@ -105,14 +105,14 @@
 <span class="s2">// Create network</span>
 <span class="s2">network $</span><span class="si">{name}</span><span class="s2"> {</span>
 <span class="s2">    connections allowunconnected:</span>
-<span class="si">% f</span><span class="s2">or u, v in topology.edges_iter():</span>
+<span class="si">% f</span><span class="s2">or u, v in topology.edges():</span>
 <span class="s2">    &lt;%</span>
 <span class="s2">    attr_str = &quot;&quot;</span>
 <span class="s2">    if set_delays:</span>
-<span class="s2">        delay = delay_norm * topology.edge[u][v][&#39;delay&#39;]</span>
+<span class="s2">        delay = delay_norm * topology.adj[u][v][&#39;delay&#39;]</span>
 <span class="s2">        attr_str += &quot; delay=</span><span class="si">%s</span><span class="s2">ms;&quot; % (str(delay))</span>
 <span class="s2">    if set_capacities:</span>
-<span class="s2">        capacity = capacity_norm * topology.edge[u][v][&#39;capacity&#39;]</span>
+<span class="s2">        capacity = capacity_norm * topology.adj[u][v][&#39;capacity&#39;]</span>
 <span class="s2">        attr_str += &quot; datarate=</span><span class="si">%s</span><span class="s2">Mbps;&quot; % (str(capacity))</span>
 <span class="s2">    %&gt;</span>
 <span class="s2">    ${&quot;node[</span><span class="si">%s</span><span class="s2">].ppg$o++ --&gt; {</span><span class="si">%s</span><span class="s2">} --&gt; node[</span><span class="si">%s</span><span class="s2">].pppg$i++;&quot; % (str(node_map[u]), attr_str.strip(), str(node_map[v]))}</span>
@@ -179,7 +179,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

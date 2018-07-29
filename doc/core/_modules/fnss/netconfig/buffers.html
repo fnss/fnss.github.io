@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.netconfig.buffers &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.netconfig.buffers &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -102,21 +102,21 @@
 <span class="sd">    &gt;&gt;&gt; fnss.set_buffer_sizes_bw_delay_prod(topology)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">((</span><span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
-                    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()))</span>
-        <span class="k">assert</span> <span class="nb">all</span><span class="p">((</span><span class="s1">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
-                    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()))</span>
+        <span class="k">assert</span> <span class="nb">all</span><span class="p">((</span><span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()))</span>
+        <span class="k">assert</span> <span class="nb">all</span><span class="p">((</span><span class="s1">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()))</span>
         <span class="n">capacity_unit</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;capacity_unit&#39;</span><span class="p">]</span>
         <span class="n">delay_unit</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;delay_unit&#39;</span><span class="p">]</span>
     <span class="k">except</span> <span class="p">(</span><span class="ne">AssertionError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All links must have a capacity and delay attribute&#39;</span><span class="p">)</span>
     <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;buffer_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_unit</span>
     <span class="c1"># this filters potential self-loops which would crash the function</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()</span> <span class="k">if</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">v</span><span class="p">]</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span> <span class="k">if</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">v</span><span class="p">]</span>
     <span class="c1"># dictionary listing all end-to-end routes in which a link appears</span>
     <span class="n">route_presence</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">))]))</span>
     <span class="c1"># dictionary with all network routes</span>
-    <span class="n">route</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+    <span class="n">route</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
     <span class="c1"># Dictionary storing end-to-end path delays for each OD pair</span>
     <span class="n">e2e_delay</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -128,12 +128,12 @@
                 <span class="k">continue</span>
             <span class="n">path_delay</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
-                <span class="k">if</span> <span class="s1">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="s1">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span>
                     <span class="k">if</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">route_presence</span><span class="p">:</span>
                         <span class="n">route_presence</span><span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">orig</span><span class="p">,</span> <span class="n">dest</span><span class="p">))</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">route_presence</span><span class="p">[(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">orig</span><span class="p">,</span> <span class="n">dest</span><span class="p">))</span>
-                    <span class="n">path_delay</span> <span class="o">+=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
+                    <span class="n">path_delay</span> <span class="o">+=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No link delays available&#39;</span><span class="p">)</span>
             <span class="n">e2e_delay</span><span class="p">[</span><span class="n">orig</span><span class="p">][</span><span class="n">dest</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_delay</span>
@@ -156,11 +156,11 @@
             <span class="c1"># link endpoint if that link was used, i.e. twice the delay of the</span>
             <span class="c1"># link</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-                <span class="n">mean_rtt</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">+</span> \
-                           <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
+                <span class="n">mean_rtt</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">+</span> \
+                           <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
-                    <span class="n">mean_rtt</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">e2e_delay</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">]</span>
+                    <span class="n">mean_rtt</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">e2e_delay</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">]</span>
                 <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot assign buffer sizes because some &#39;</span>
                                  <span class="s1">&#39;paths do not have corresponding return path&#39;</span><span class="p">)</span>
@@ -170,9 +170,9 @@
     <span class="k">if</span> <span class="n">buffer_unit</span> <span class="o">==</span> <span class="s1">&#39;packets&#39;</span><span class="p">:</span>
         <span class="n">norm_factor</span> <span class="o">/=</span> <span class="n">packet_size</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">capacity</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
+        <span class="n">capacity</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
         <span class="n">buffer_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mean_rtt_dict</span><span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)]</span> <span class="o">*</span> <span class="n">capacity</span> <span class="o">*</span> <span class="n">norm_factor</span><span class="p">)</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_size</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_size</span>
     <span class="k">return</span></div>
 
 
@@ -219,8 +219,8 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;k must be a positive number&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">default_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="s1">&#39;capacity_unit&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span> \
-                <span class="ow">or</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
-                           <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()):</span>
+                <span class="ow">or</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
+                           <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All links must have a capacity attribute. &#39;</span>
                              <span class="s1">&#39;Set capacity or specify a default buffer size&#39;</span><span class="p">)</span>
     <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;buffer_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_unit</span>
@@ -228,13 +228,13 @@
     <span class="n">norm_factor</span> <span class="o">=</span> <span class="n">capacity_units</span><span class="p">[</span><span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;capacity_unit&#39;</span><span class="p">]]</span> <span class="o">/</span> <span class="mf">8.0</span>
     <span class="k">if</span> <span class="n">buffer_unit</span> <span class="o">==</span> <span class="s1">&#39;packets&#39;</span><span class="p">:</span>
         <span class="n">norm_factor</span> <span class="o">/=</span> <span class="n">packet_size</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="k">if</span> <span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span>
-            <span class="n">capacity</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="k">if</span> <span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span>
+            <span class="n">capacity</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
             <span class="n">buffer_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">capacity</span> <span class="o">*</span> <span class="n">norm_factor</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">buffer_size</span> <span class="o">=</span> <span class="n">default_size</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_size</span></div>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_size</span></div>
 
 
 <div class="viewcode-block" id="set_buffer_sizes_constant"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.buffers.set_buffer_sizes_constant.html#fnss.netconfig.buffers.set_buffer_sizes_constant">[docs]</a><span class="k">def</span> <span class="nf">set_buffer_sizes_constant</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">buffer_size</span><span class="p">,</span> <span class="n">buffer_unit</span><span class="o">=</span><span class="s1">&#39;bytes&#39;</span><span class="p">,</span>
@@ -274,9 +274,9 @@
                              <span class="s1">&#39;expressed in </span><span class="si">%s</span><span class="s1">. Use that unit instead of </span><span class="si">%s</span><span class="s1">&#39;</span> \
                              <span class="o">%</span> <span class="p">(</span><span class="n">curr_buffer_unit</span><span class="p">,</span> <span class="n">buffer_unit</span><span class="p">))</span>
     <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;buffer_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_unit</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()</span> <span class="k">if</span> <span class="n">interfaces</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">interfaces</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span> <span class="k">if</span> <span class="n">interfaces</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">interfaces</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_size</span></div>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer_size</span></div>
 
 
 <div class="viewcode-block" id="get_buffer_sizes"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.buffers.get_buffer_sizes.html#fnss.netconfig.buffers.get_buffer_sizes">[docs]</a><span class="k">def</span> <span class="nf">get_buffer_sizes</span><span class="p">(</span><span class="n">topology</span><span class="p">):</span>
@@ -317,8 +317,8 @@
 <span class="sd">        The topology whose buffer sizes are cleared</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;buffer_unit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;buffer&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;buffer&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 </pre></div>
 
           </div>
@@ -335,7 +335,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

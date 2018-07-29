@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.netconfig.capacities &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.netconfig.capacities &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -64,6 +64,8 @@
 <span class="sd">Link capacities can be assigned either deterministically or randomly, according</span>
 <span class="sd">to various models.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">LooseVersion</span>
+
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
 <span class="kn">from</span> <span class="nn">fnss.util</span> <span class="k">import</span> <span class="n">random_from_pdf</span>
@@ -127,9 +129,9 @@
                                 <span class="o">/</span> <span class="n">capacity_units</span><span class="p">[</span><span class="n">curr_capacity_unit</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;capacity_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity_unit</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">links</span> <span class="ow">or</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">links</span> <span class="ow">or</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity</span> <span class="o">*</span> <span class="n">conversion_factor</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity</span> <span class="o">*</span> <span class="n">conversion_factor</span>
     <span class="k">return</span></div>
 
 
@@ -164,8 +166,8 @@
     <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="n">capacity</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">capacity</span> <span class="ow">in</span> <span class="n">capacity_pdf</span><span class="o">.</span><span class="n">keys</span><span class="p">())):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All capacities in capacity_pdf must be positive&#39;</span><span class="p">)</span>
     <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;capacity_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity_unit</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_from_pdf</span><span class="p">(</span><span class="n">capacity_pdf</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_from_pdf</span><span class="p">(</span><span class="n">capacity_pdf</span><span class="p">)</span>
     <span class="k">return</span></div>
 
 
@@ -328,11 +330,11 @@
         <span class="n">in_degree</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">in_degree_centrality</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
         <span class="n">out_degree</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">out_degree_centrality</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
         <span class="n">gravity</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">out_degree</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">*</span> <span class="n">in_degree</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
-                   <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()}</span>
+                   <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()}</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">degree</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">degree_centrality</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
         <span class="n">gravity</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">degree</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">*</span> <span class="n">degree</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
-                   <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()}</span>
+                   <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()}</span>
     <span class="n">_set_capacities_proportionally</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">capacities</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span>
                                    <span class="n">capacity_unit</span><span class="o">=</span><span class="n">capacity_unit</span><span class="p">)</span></div>
 
@@ -433,7 +435,10 @@
 <span class="sd">    capacity_unit : str, optional</span>
 <span class="sd">        The unit in which capacity value is expressed (e.g. Mbps, Gbps etc..)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">centrality</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">communicability_centrality</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">LooseVersion</span><span class="p">(</span><span class="s2">&quot;2.0&quot;</span><span class="p">):</span>
+        <span class="n">centrality</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">communicability_centrality</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">centrality</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">subgraph_centrality</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
     <span class="n">_set_capacities_gravity</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">capacities</span><span class="p">,</span> <span class="n">centrality</span><span class="p">,</span> <span class="n">capacity_unit</span><span class="p">)</span></div>
 
 
@@ -480,7 +485,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">communicability</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">communicability</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
     <span class="n">centrality</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">communicability</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
-                  <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()}</span>
+                  <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()}</span>
     <span class="n">_set_capacities_proportionally</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">capacities</span><span class="p">,</span> <span class="n">centrality</span><span class="p">,</span>
                                    <span class="n">capacity_unit</span><span class="o">=</span><span class="n">capacity_unit</span><span class="p">)</span></div>
 
@@ -504,7 +509,7 @@
 <span class="sd">        The unit in which capacity value is expressed (e.g. Mbps, Gbps etc..)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">gravity</span> <span class="o">=</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">node_metric</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">*</span> <span class="n">node_metric</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
-               <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()}</span>
+               <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()}</span>
     <span class="n">_set_capacities_proportionally</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">capacities</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span>
                                    <span class="n">capacity_unit</span><span class="o">=</span><span class="n">capacity_unit</span><span class="p">)</span>
 
@@ -564,7 +569,7 @@
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">boundary</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metric_boundaries</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">metric_value</span> <span class="o">&lt;=</span> <span class="n">boundary</span><span class="p">:</span>
                 <span class="n">capacity</span> <span class="o">=</span> <span class="n">capacities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity</span>
+                <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity</span>
                 <span class="k">break</span>
         <span class="c1"># if the loop is not stopped yet, it means that because of float</span>
         <span class="c1"># rounding error, max_capacity &lt;  metric_boundaries[-1], so we set the</span>
@@ -572,7 +577,7 @@
         <span class="c1"># Anyway, the code should never reach this point, because before the</span>
         <span class="c1"># for loop we are already adjusting the value of metric_boundaries[-1]</span>
         <span class="c1"># to make it &gt; max_capacity</span>
-        <span class="k">else</span><span class="p">:</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacities</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacities</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="get_capacities"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.capacities.get_capacities.html#fnss.netconfig.capacities.get_capacities">[docs]</a><span class="k">def</span> <span class="nf">get_capacities</span><span class="p">(</span><span class="n">topology</span><span class="p">):</span>
@@ -611,8 +616,8 @@
 <span class="sd">    topology : Topology</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;capacity_unit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;capacity&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;capacity&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 </pre></div>
 
           </div>
@@ -629,7 +634,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

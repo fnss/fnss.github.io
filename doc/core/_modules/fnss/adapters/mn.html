@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.adapters.mn &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.adapters.mn &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -99,7 +99,7 @@
         <span class="n">fnss_topo</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="n">opts</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">linkInfo</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="k">if</span> <span class="s1">&#39;bw&#39;</span> <span class="ow">in</span> <span class="n">opts</span><span class="p">:</span>
-            <span class="n">fnss_topo</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">opts</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">]</span>
+            <span class="n">fnss_topo</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">opts</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="s1">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">opts</span><span class="p">:</span>
             <span class="n">delay</span> <span class="o">=</span> <span class="n">opts</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;\d+\.?\d*&quot;</span><span class="p">,</span> <span class="n">delay</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -164,12 +164,12 @@
         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;Cannot import mininet.topo package. &#39;</span>
                           <span class="s1">&#39;Make sure Mininet is installed on this machine.&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">hosts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">hosts</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">()</span>
+        <span class="n">hosts</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
                  <span class="k">if</span> <span class="s1">&#39;host&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">switches</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">switches</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">()</span>
+        <span class="n">switches</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
                     <span class="k">if</span> <span class="s1">&#39;switch&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
-    <span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">())</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
     <span class="n">switches</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">switches</span><span class="p">)</span>
     <span class="n">hosts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">switches</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">hosts</span><span class="p">):</span>
@@ -201,17 +201,17 @@
                               <span class="o">/</span> <span class="n">capacity_units</span><span class="p">[</span><span class="s1">&#39;Mbps&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">delay_unit</span><span class="p">:</span>
         <span class="n">delay_conversion</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">time_units</span><span class="p">[</span><span class="n">delay_unit</span><span class="p">])</span> <span class="o">/</span> <span class="n">time_units</span><span class="p">[</span><span class="s1">&#39;us&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">if</span> <span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">capacity_unit</span><span class="p">:</span>
-            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacity_conversion</span>
+        <span class="k">if</span> <span class="s1">&#39;capacity&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">capacity_unit</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;bw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacity_conversion</span>
             <span class="c1"># Use Token Bucket filter to implement rate limit</span>
             <span class="n">params</span><span class="p">[</span><span class="s1">&#39;use_htb&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">if</span> <span class="s1">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">delay_unit</span><span class="p">:</span>
-            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">us&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;delay&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">delay_unit</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">us&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span>
                                            <span class="o">*</span> <span class="n">delay_conversion</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s1">&#39;buffer_size&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">buffer_unit</span> <span class="o">==</span> <span class="s1">&#39;packets&#39;</span><span class="p">:</span>
-            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_queue_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer_size&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;buffer_size&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="ow">and</span> <span class="n">buffer_unit</span> <span class="o">==</span> <span class="s1">&#39;packets&#39;</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_queue_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;buffer_size&#39;</span><span class="p">]</span>
         <span class="n">topo</span><span class="o">.</span><span class="n">addLink</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">topo</span></div>
 </pre></div>
@@ -230,7 +230,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

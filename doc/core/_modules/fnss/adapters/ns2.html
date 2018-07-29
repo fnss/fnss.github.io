@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.adapters.ns2 &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.adapters.ns2 &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -95,7 +95,7 @@
 <span class="s2">set ns [new Simulator]</span>
 
 <span class="s2"># Create nodes</span>
-<span class="si">% f</span><span class="s2">or node in topology.nodes_iter():</span>
+<span class="si">% f</span><span class="s2">or node in topology.nodes():</span>
 <span class="s2">set n${str(node)} [$ns node]</span>
 <span class="si">% e</span><span class="s2">ndfor</span>
 
@@ -103,40 +103,40 @@
 <span class="s2">set qtype DropTail</span>
 <span class="s2">## if topology is undirected, create duplex links, otherwise simplex links</span>
 <span class="si">% i</span><span class="s2">f topology.is_directed():</span>
-<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges_iter():</span>
-<span class="s2">&lt;</span><span class="si">% d</span><span class="s2">elay = &quot;0&quot; if not set_delays else str(topology.edge[u][v][&#39;delay&#39;] * delay_norm) %&gt;\</span>
-<span class="s2">${&quot;$ns simplex-link $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">Mb </span><span class="si">%s</span><span class="s2">ms $qtype&quot; % (str(u), str(v), str(topology.edge[u][v][&#39;capacity&#39;] * capacity_norm), delay)}</span>
+<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges():</span>
+<span class="s2">&lt;</span><span class="si">% d</span><span class="s2">elay = &quot;0&quot; if not set_delays else str(topology.adj[u][v][&#39;delay&#39;] * delay_norm) %&gt;\</span>
+<span class="s2">${&quot;$ns simplex-link $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">Mb </span><span class="si">%s</span><span class="s2">ms $qtype&quot; % (str(u), str(v), str(topology.adj[u][v][&#39;capacity&#39;] * capacity_norm), delay)}</span>
 <span class="s2">    </span><span class="si">% e</span><span class="s2">ndfor</span>
 <span class="si">% e</span><span class="s2">lse:</span>
-<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges_iter():</span>
-<span class="s2">&lt;</span><span class="si">% d</span><span class="s2">elay = &quot;0&quot; if not set_delays else str(topology.edge[u][v][&#39;delay&#39;] * delay_norm) %&gt;\</span>
-<span class="s2">${&quot;$ns duplex-link $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">Mb </span><span class="si">%s</span><span class="s2">ms $qtype&quot; % (str(u), str(v), str(topology.edge[u][v][&#39;capacity&#39;] * capacity_norm), delay)}</span>
+<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges():</span>
+<span class="s2">&lt;</span><span class="si">% d</span><span class="s2">elay = &quot;0&quot; if not set_delays else str(topology.adj[u][v][&#39;delay&#39;] * delay_norm) %&gt;\</span>
+<span class="s2">${&quot;$ns duplex-link $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">Mb </span><span class="si">%s</span><span class="s2">ms $qtype&quot; % (str(u), str(v), str(topology.adj[u][v][&#39;capacity&#39;] * capacity_norm), delay)}</span>
 <span class="s2">    </span><span class="si">% e</span><span class="s2">ndfor</span>
 <span class="si">%e</span><span class="s2">ndif</span>
 
 <span class="si">% i</span><span class="s2">f set_weights:</span>
 <span class="s2"># Set link weights</span>
-<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges_iter():</span>
-<span class="s2">${&quot;$ns cost $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(u), str(v), str(topology.edge[u][v][&#39;weight&#39;]))}</span>
+<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges():</span>
+<span class="s2">${&quot;$ns cost $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(u), str(v), str(topology.adj[u][v][&#39;weight&#39;]))}</span>
 <span class="s2">        </span><span class="si">% i</span><span class="s2">f not topology.is_directed():</span>
-<span class="s2">${&quot;$ns cost $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(v), str(u), str(topology.edge[v][u][&#39;weight&#39;]))}</span>
+<span class="s2">${&quot;$ns cost $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(v), str(u), str(topology.adj[v][u][&#39;weight&#39;]))}</span>
 <span class="s2">        </span><span class="si">% e</span><span class="s2">ndif</span>
 <span class="s2">    </span><span class="si">% e</span><span class="s2">ndfor</span>
 <span class="si">% e</span><span class="s2">ndif</span>
 
 <span class="si">% i</span><span class="s2">f set_buffers:</span>
 <span class="s2"># Set queue sizes</span>
-<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges_iter():</span>
-<span class="s2">${&quot;$ns queue-limit $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(u), str(v), str(topology.edge[u][v][&#39;buffer&#39;]))}</span>
+<span class="s2">    </span><span class="si">% f</span><span class="s2">or u, v in topology.edges():</span>
+<span class="s2">${&quot;$ns queue-limit $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(u), str(v), str(topology.adj[u][v][&#39;buffer&#39;]))}</span>
 <span class="s2">        </span><span class="si">% i</span><span class="s2">f not topology.is_directed():</span>
-<span class="s2">${&quot;$ns queue-limit $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(v), str(u), str(topology.edge[v][u][&#39;buffer&#39;]))}</span>
+<span class="s2">${&quot;$ns queue-limit $n</span><span class="si">%s</span><span class="s2"> $n</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot; % (str(v), str(u), str(topology.adj[v][u][&#39;buffer&#39;]))}</span>
 <span class="s2">        </span><span class="si">% e</span><span class="s2">ndif</span>
 <span class="s2">    </span><span class="si">% e</span><span class="s2">ndfor</span>
 <span class="si">% e</span><span class="s2">ndif</span>
 
 <span class="si">% i</span><span class="s2">f deploy_stacks:</span>
 <span class="s2"># Deploy applications and agents</span>
-<span class="s2">    </span><span class="si">% f</span><span class="s2">or node in topology.nodes_iter():</span>
+<span class="s2">    </span><span class="si">% f</span><span class="s2">or node in topology.nodes():</span>
 <span class="s2">&lt;%</span>
 <span class="s2">stack = get_stack(topology, node)</span>
 <span class="s2">if stack is None:</span>
@@ -182,7 +182,7 @@
 <span class="sd">    valid : bool</span>
 <span class="sd">        *True* if stacks are valid ns-2 stacks, *False* otherwise</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
         <span class="n">applications</span> <span class="o">=</span> <span class="n">get_application_names</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">applications</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;class&#39;</span> <span class="ow">in</span> <span class="n">get_application_properties</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -232,8 +232,8 @@
     <span class="n">set_buffers</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">set_delays</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="c1"># if all links are annotated with weights, then set weights</span>
-    <span class="n">set_weights</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
-                      <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">())</span>
+    <span class="n">set_weights</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
+                      <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;capacity_unit&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The given topology does not have capacity data.&#39;</span><span class="p">)</span>
@@ -257,7 +257,7 @@
             <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Some application stacks cannot be parsed correctly. The &#39;</span>
                  <span class="s1">&#39;output file will be generated without stack assignments.&#39;</span><span class="p">)</span>
             <span class="n">stacks</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">node</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes</span><span class="p">()):</span>
             <span class="n">stacks</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">__TEMPLATE</span><span class="p">)</span>
     <span class="n">variables</span> <span class="o">=</span> <span class="p">{</span>
@@ -285,7 +285,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

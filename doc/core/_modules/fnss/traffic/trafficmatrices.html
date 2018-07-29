@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.traffic.trafficmatrices &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.traffic.trafficmatrices &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -481,20 +481,20 @@
                 <span class="k">if</span> <span class="n">o</span> <span class="o">!=</span> <span class="n">d</span> <span class="ow">and</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">shortest_path</span><span class="p">[</span><span class="n">o</span><span class="p">]:</span>
                     <span class="n">od_pairs</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">o</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">shortest_path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
-                                                       <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-            <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">shortest_path</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
+                                                            <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+            <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="c1"># Find max u</span>
         <span class="k">for</span> <span class="n">o</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">od_pairs</span><span class="p">:</span>
             <span class="n">path</span> <span class="o">=</span> <span class="n">shortest_path</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="n">d</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
-                    <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">assignments</span><span class="p">[(</span><span class="n">o</span><span class="p">,</span> <span class="n">d</span><span class="p">)]</span>
+                    <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">assignments</span><span class="p">[(</span><span class="n">o</span><span class="p">,</span> <span class="n">d</span><span class="p">)]</span>
         <span class="c1"># Calculate scaling</span>
-        <span class="n">current_max_u</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">])</span> \
-                             <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">])</span>
-                             <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()))</span>
+        <span class="n">current_max_u</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">])</span> \
+                             <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">])</span>
+                             <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()))</span>
         <span class="n">norm_factor</span> <span class="o">=</span> <span class="n">max_u</span> <span class="o">/</span> <span class="n">current_max_u</span>
         <span class="k">for</span> <span class="n">od_pair</span> <span class="ow">in</span> <span class="n">assignments</span><span class="p">:</span>
             <span class="n">assignments</span><span class="p">[</span><span class="n">od_pair</span><span class="p">]</span> <span class="o">*=</span> <span class="n">norm_factor</span>
@@ -612,8 +612,8 @@
                                                           <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
                     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">origin_nodes</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">shortest_path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
-                                                       <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+            <span class="n">shortest_path</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
+                                                            <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
         <span class="n">current_max_u</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="nb">max</span><span class="p">(</span><span class="n">link_loads</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
                                             <span class="n">tm_sequence</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
                                             <span class="n">shortest_path</span>
@@ -752,8 +752,8 @@
                                                           <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
                     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">origin_nodes</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">shortest_path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
-                                                       <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+            <span class="n">shortest_path</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
+                                                            <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
         <span class="n">current_max_u</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="nb">max</span><span class="p">(</span><span class="n">link_loads</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
                                             <span class="n">tm_sequence</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
                                             <span class="n">shortest_path</span>
@@ -904,14 +904,14 @@
     <span class="n">nfur</span> <span class="o">=</span> <span class="n">betweenness</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">topology</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">edge_attr</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
+        <span class="n">edge_attr</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
         <span class="n">topology</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="n">betw</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                                          <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">betw</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">betw</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nfur</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
                 <span class="n">nfur</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">betw</span><span class="p">[</span><span class="n">node</span><span class="p">]</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">edge_attr</span><span class="p">)</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">**</span><span class="n">edge_attr</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">nfur</span>
 
 
@@ -959,15 +959,16 @@
 
     <span class="n">od_pairs_topology</span> <span class="o">=</span> <span class="n">od_pairs_from_topology</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">validate_load</span><span class="p">:</span>
-        <span class="n">shortest_path</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+        <span class="n">shortest_path</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
+                                                        <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="n">matrices</span><span class="p">:</span>
         <span class="n">od_pairs_tm</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">od_pairs</span><span class="p">()</span>
         <span class="c1"># verify that OD pairs in TM are equal or subset of topology</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(((</span><span class="n">o</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="n">od_pairs_topology</span> <span class="k">for</span> <span class="n">o</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">od_pairs_tm</span><span class="p">)):</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="n">validate_load</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-                <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+                <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">capacity_unit</span> <span class="o">=</span> <span class="n">capacity_units</span><span class="p">[</span><span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;capacity_unit&#39;</span><span class="p">]]</span>
             <span class="n">volume_unit</span> <span class="o">=</span> <span class="n">capacity_units</span><span class="p">[</span><span class="n">matrix</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;volume_unit&#39;</span><span class="p">]]</span>
             <span class="n">norm_factor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">volume_unit</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">capacity_unit</span><span class="p">)</span>
@@ -976,10 +977,10 @@
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
                     <span class="k">continue</span>
                 <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
-                    <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="n">d</span><span class="p">]</span>
-            <span class="n">max_u</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">norm_factor</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">])</span> \
-                         <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">])</span>
-                         <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()))</span>
+                    <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="n">d</span><span class="p">]</span>
+            <span class="n">max_u</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">norm_factor</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">])</span> \
+                         <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">])</span>
+                         <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()))</span>
             <span class="k">if</span> <span class="n">max_u</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
     <span class="k">return</span> <span class="kc">True</span></div>
 
@@ -1037,9 +1038,10 @@
     <span class="n">volume_unit</span> <span class="o">=</span> <span class="n">capacity_units</span><span class="p">[</span><span class="n">traffic_matrix</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;volume_unit&#39;</span><span class="p">]]</span>
     <span class="n">norm_factor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">volume_unit</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">capacity_unit</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">routing_matrix</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">routing_matrix</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">routing_matrix</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">all_pairs_dijkstra_path</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span>
+                                                         <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">od_pairs</span> <span class="o">=</span> <span class="n">traffic_matrix</span><span class="o">.</span><span class="n">od_pairs</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">process_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">number_of_paths</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -1047,9 +1049,9 @@
             <span class="k">return</span>
         <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">ecmp</span><span class="p">:</span>
-                <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">traffic_matrix</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="n">d</span><span class="p">]</span>
+                <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">traffic_matrix</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="n">d</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> \
+                <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">+=</span> \
                             <span class="n">traffic_matrix</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">o</span><span class="p">][</span><span class="n">d</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">number_of_paths</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">o</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">od_pairs</span><span class="p">:</span>
@@ -1064,9 +1066,9 @@
             <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
                 <span class="n">process_path</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
-    <span class="k">return</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">norm_factor</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">])</span> \
-            <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">])</span>
-            <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()}</span></div>
+    <span class="k">return</span> <span class="p">{(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span> <span class="n">norm_factor</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;load&#39;</span><span class="p">])</span> \
+            <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;capacity&#39;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()}</span></div>
 
 
 <div class="viewcode-block" id="read_traffic_matrix"><a class="viewcode-back" href="../../../apidoc/generated/fnss.traffic.trafficmatrices.read_traffic_matrix.html#fnss.traffic.trafficmatrices.read_traffic_matrix">[docs]</a><span class="k">def</span> <span class="nf">read_traffic_matrix</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">):</span>
@@ -1196,7 +1198,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.netconfig.delays &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.netconfig.delays &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -119,9 +119,9 @@
                                 <span class="o">/</span> <span class="n">time_units</span><span class="p">[</span><span class="n">curr_delay_unit</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;delay_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">delay_unit</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">links</span> <span class="ow">or</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">links</span> <span class="ow">or</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">delay</span> <span class="o">*</span> <span class="n">conversion_factor</span></div>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">delay</span> <span class="o">*</span> <span class="n">conversion_factor</span></div>
 
 
 <div class="viewcode-block" id="set_delays_geo_distance"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.delays.set_delays_geo_distance.html#fnss.netconfig.delays.set_delays_geo_distance">[docs]</a><span class="k">def</span> <span class="nf">set_delays_geo_distance</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">specific_delay</span><span class="p">,</span> <span class="n">default_delay</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -168,7 +168,7 @@
                          <span class="s2">&quot;topology (</span><span class="si">%s</span><span class="s2">) is not valid&quot;</span> <span class="o">%</span> <span class="n">distance_unit</span><span class="p">)</span>
     <span class="n">edges</span> <span class="o">=</span> <span class="n">links</span> <span class="ow">or</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">default_delay</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="s1">&#39;length&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="s1">&#39;length&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">)):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All links must have a length attribute&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="s1">&#39;delay_unit&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">graph</span> <span class="ow">and</span> <span class="n">links</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># If a delay_unit is set, that means that some links have already</span>
@@ -185,12 +185,12 @@
     <span class="c1"># factor to convert default delay in target delay unit</span>
     <span class="n">default_conv_factor</span> <span class="o">=</span> <span class="n">time_units</span><span class="p">[</span><span class="n">delay_unit</span><span class="p">]</span> <span class="o">/</span> <span class="n">time_units</span><span class="p">[</span><span class="n">curr_delay_unit</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">&#39;length&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span>
-            <span class="n">length</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;length&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">length_conv_factor</span>
+        <span class="k">if</span> <span class="s1">&#39;length&#39;</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;length&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">length_conv_factor</span>
             <span class="n">delay</span> <span class="o">=</span> <span class="n">specific_delay</span> <span class="o">*</span> <span class="n">length</span> <span class="o">*</span> <span class="n">conv_factor</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">delay</span> <span class="o">=</span> <span class="n">default_delay</span> <span class="o">*</span> <span class="n">default_conv_factor</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">delay</span></div>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">][</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">delay</span></div>
 
 
 <div class="viewcode-block" id="get_delays"><a class="viewcode-back" href="../../../apidoc/generated/fnss.netconfig.delays.get_delays.html#fnss.netconfig.delays.get_delays">[docs]</a><span class="k">def</span> <span class="nf">get_delays</span><span class="p">(</span><span class="n">topology</span><span class="p">):</span>
@@ -229,8 +229,8 @@
 <span class="sd">    topology : Topology</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;delay_unit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;delay&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;delay&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 </pre></div>
 
           </div>
@@ -247,7 +247,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

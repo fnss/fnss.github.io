@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>fnss.adapters.jfed &#8212; FNSS 0.7.0 documentation</title>
+    <title>fnss.adapters.jfed &#8212; FNSS 0.8.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -118,8 +118,8 @@
     <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_layout</span><span class="p">(</span><span class="n">topology</span><span class="p">)</span>
     <span class="c1"># Create mapping between links and interface IDs</span>
     <span class="n">if_names</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">:</span>
-        <span class="n">next_hops</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">:</span>
+        <span class="n">next_hops</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">topology</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
         <span class="n">if_names</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">next_hop</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">next_hop</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">next_hops</span><span class="p">)}</span>
     <span class="n">head</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s1">&#39;rspec&#39;</span><span class="p">)</span>
     <span class="n">head</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;generated_by&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;FNSS&quot;</span>
@@ -130,7 +130,7 @@
     <span class="n">head</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;xmlns:delay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;http://www.protogeni.net/resources/rspec/ext/delay/1&quot;</span>
     <span class="n">head</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;xmlns:xsi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
     <span class="c1"># Iterate over nodes</span>
-    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes_iter</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="s1">&#39;node&#39;</span><span class="p">)</span>
         <span class="n">node</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;client_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;node</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
         <span class="n">node</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;component_manager_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;urn:publicid:IDN+</span><span class="si">%s</span><span class="s2">+authority+cm&quot;</span> <span class="o">%</span> <span class="n">testbed</span>
@@ -147,7 +147,7 @@
     <span class="c1"># The convention in jFed is to identify links with &quot;linkX&quot; where X is an</span>
     <span class="c1"># integer but making sure that links and nodes have different integers</span>
     <span class="n">link_id</span> <span class="o">=</span> <span class="n">topology</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges_iter</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">topology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
         <span class="n">link_id</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">link</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">)</span>
         <span class="n">link</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;client_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;link</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">link_id</span><span class="p">)</span>
@@ -245,7 +245,7 @@
             <span class="k">if</span> <span class="s1">&#39;latency&#39;</span> <span class="ow">in</span> <span class="n">prop</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
                 <span class="n">edge_attr</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">]</span>
                 <span class="n">has_delays</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">topology</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">edge_attr</span><span class="p">)</span>
+        <span class="n">topology</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">**</span><span class="n">edge_attr</span><span class="p">)</span>
     <span class="c1"># Set capacity and delay units</span>
     <span class="k">if</span> <span class="n">has_capacities</span><span class="p">:</span>
         <span class="n">topology</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;capacity_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;kbps&#39;</span>
@@ -268,7 +268,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.7.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">FNSS 0.8.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
