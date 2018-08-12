@@ -1,6 +1,0 @@
-fnss\.topologies\.datacenter\.DatacenterTopology\.remove\_edges\_from
-=====================================================================
-
-.. currentmodule:: fnss.topologies.datacenter
-
-.. automethod:: DatacenterTopology.remove_edges_from

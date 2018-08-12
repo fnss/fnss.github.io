@@ -1,6 +1,0 @@
-fnss\.topologies\.datacenter\.DatacenterTopology\.nodes\_iter
-=============================================================
-
-.. currentmodule:: fnss.topologies.datacenter
-
-.. automethod:: DatacenterTopology.nodes_iter

@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.Topology\.selfloop\_edges
-=====================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. automethod:: Topology.selfloop_edges

@@ -59,7 +59,7 @@ Here you can find links to browse documentation and examples of the various comp
 
 Component             | Documentation | Examples
 --------------------- |:-------------:|:--------:
-Core (Python) library |  [Browse](doc/core/) | [Browse](https://github.com/fnss/fnss/tree/master/examples)
+Core (Python) library |  [Browse](https://fnss.readthedocs.io) | [Browse](https://github.com/fnss/fnss/tree/master/examples)
 C++ library           | [Browse](doc/cpp/) | [Browse](https://github.com/fnss/fnss-cpp/tree/master/examples)
 Java library          | [Browse](doc/java/) | [Browse](https://github.com/fnss/fnss-java/tree/master/examples)
 ns-3 library          | [Browse](doc/ns3/) | [Browse](https://github.com/fnss/fnss-ns3/tree/master/fnss/examples)

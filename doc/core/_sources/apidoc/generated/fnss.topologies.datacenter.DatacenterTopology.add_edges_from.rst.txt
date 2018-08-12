@@ -1,6 +1,0 @@
-fnss\.topologies\.datacenter\.DatacenterTopology\.add\_edges\_from
-==================================================================
-
-.. currentmodule:: fnss.topologies.datacenter
-
-.. automethod:: DatacenterTopology.add_edges_from

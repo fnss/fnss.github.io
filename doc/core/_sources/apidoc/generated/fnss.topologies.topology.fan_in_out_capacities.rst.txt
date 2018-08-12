@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.fan\_in\_out\_capacities
-====================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. autofunction:: fan_in_out_capacities

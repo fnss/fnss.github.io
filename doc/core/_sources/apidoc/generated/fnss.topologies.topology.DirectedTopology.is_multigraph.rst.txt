@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.DirectedTopology\.is\_multigraph
-============================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. automethod:: DirectedTopology.is_multigraph

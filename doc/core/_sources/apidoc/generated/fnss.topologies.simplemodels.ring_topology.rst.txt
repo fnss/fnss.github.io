@@ -1,6 +1,0 @@
-fnss\.topologies\.simplemodels\.ring\_topology
-==============================================
-
-.. currentmodule:: fnss.topologies.simplemodels
-
-.. autofunction:: ring_topology

@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.DirectedTopology\.remove\_edge
-==========================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. automethod:: DirectedTopology.remove_edge

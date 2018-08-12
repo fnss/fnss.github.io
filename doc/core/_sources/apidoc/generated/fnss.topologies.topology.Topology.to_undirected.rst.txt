@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.Topology\.to\_undirected
-====================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. automethod:: Topology.to_undirected

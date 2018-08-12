@@ -1,6 +1,0 @@
-fnss\.topologies\.datacenter\.DatacenterTopology\.add\_cycle
-============================================================
-
-.. currentmodule:: fnss.topologies.datacenter
-
-.. automethod:: DatacenterTopology.add_cycle

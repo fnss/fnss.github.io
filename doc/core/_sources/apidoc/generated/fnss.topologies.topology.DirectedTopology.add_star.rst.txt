@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.DirectedTopology\.add\_star
-=======================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. automethod:: DirectedTopology.add_star

@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.rename\_edge\_attribute
-===================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. autofunction:: rename_edge_attribute

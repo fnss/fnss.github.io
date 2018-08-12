@@ -1,6 +1,0 @@
-fnss\.topologies\.datacenter\.DatacenterTopology\.hosts
-=======================================================
-
-.. currentmodule:: fnss.topologies.datacenter
-
-.. automethod:: DatacenterTopology.hosts

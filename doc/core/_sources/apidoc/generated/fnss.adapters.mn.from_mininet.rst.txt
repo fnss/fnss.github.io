@@ -1,6 +1,0 @@
-fnss\.adapters\.mn\.from\_mininet
-=================================
-
-.. currentmodule:: fnss.adapters.mn
-
-.. autofunction:: from_mininet

@@ -1,6 +1,0 @@
-fnss\.topologies\.simplemodels\.star\_topology
-==============================================
-
-.. currentmodule:: fnss.topologies.simplemodels
-
-.. autofunction:: star_topology

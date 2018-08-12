@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.DirectedTopology\.neighbors\_iter
-=============================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. automethod:: DirectedTopology.neighbors_iter

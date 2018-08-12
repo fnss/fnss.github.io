@@ -1,6 +1,0 @@
-fnss\.adapters\.autonetkit\.from\_autonetkit
-============================================
-
-.. currentmodule:: fnss.adapters.autonetkit
-
-.. autofunction:: from_autonetkit

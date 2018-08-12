@@ -1,6 +1,0 @@
-fnss\.topologies\.topology\.rename\_node\_attribute
-===================================================
-
-.. currentmodule:: fnss.topologies.topology
-
-.. autofunction:: rename_node_attribute
